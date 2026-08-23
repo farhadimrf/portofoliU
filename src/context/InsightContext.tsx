@@ -1,31 +1,11 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { INSIGHT_PRINCIPLES } from '../data/portfolioData';
 import type { InsightPrinciple } from '../types';
+import { InsightContext, type InsightToast } from './InsightContextValue';
 
 gsap.registerPlugin(ScrollTrigger);
-
-export interface InsightToast {
-  id: number;
-  axiomNumber: number;
-  title: string;
-  quote: string;
-}
-
-interface InsightContextType {
-  insightCount: number;
-  maxInsight: number;
-  principles: InsightPrinciple[];
-  unlockInsight: (id: number) => void;
-  incrementInsight: (amount?: number) => void;
-  isModalOpen: boolean;
-  setIsModalOpen: (open: boolean) => void;
-  activeToast: InsightToast | null;
-  dismissToast: () => void;
-}
-
-const InsightContext = createContext<InsightContextType | undefined>(undefined);
 
 export const InsightProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [insightCount, setInsightCount] = useState<number>(1);
@@ -35,20 +15,20 @@ export const InsightProvider: React.FC<{ children: React.ReactNode }> = ({ child
 
   const maxInsight = 5;
 
-  const showToast = (axiom: InsightPrinciple) => {
+  const showToast = useCallback((axiom: InsightPrinciple) => {
     setActiveToast({
       id: Date.now(),
       axiomNumber: axiom.id,
       title: axiom.title,
       quote: axiom.quote,
     });
-  };
+  }, []);
 
-  const dismissToast = () => {
+  const dismissToast = useCallback(() => {
     setActiveToast(null);
-  };
+  }, []);
 
-  const unlockInsight = (id: number) => {
+  const unlockInsight = useCallback((id: number) => {
     setPrinciples((prev) =>
       prev.map((p) => (p.id === id ? { ...p, unlocked: true } : p))
     );
@@ -57,11 +37,11 @@ export const InsightProvider: React.FC<{ children: React.ReactNode }> = ({ child
     if (targetAxiom) {
       showToast(targetAxiom);
     }
-  };
+  }, [showToast]);
 
-  const incrementInsight = (amount: number = 1) => {
+  const incrementInsight = useCallback((amount: number = 1) => {
     setInsightCount((prev) => Math.min(maxInsight, prev + amount));
-  };
+  }, [maxInsight]);
 
   // Connect ScrollTrigger milestones to automatically unlock Insight
   useEffect(() => {
@@ -93,7 +73,7 @@ export const InsightProvider: React.FC<{ children: React.ReactNode }> = ({ child
     return () => {
       triggers.forEach((t) => t.kill());
     };
-  }, []);
+  }, [unlockInsight]);
 
   // Auto-dismiss toast after 6 seconds
   useEffect(() => {
@@ -122,12 +102,4 @@ export const InsightProvider: React.FC<{ children: React.ReactNode }> = ({ child
       {children}
     </InsightContext.Provider>
   );
-};
-
-export const useInsight = () => {
-  const context = useContext(InsightContext);
-  if (!context) {
-    throw new Error('useInsight must be used within an InsightProvider');
-  }
-  return context;
 };
