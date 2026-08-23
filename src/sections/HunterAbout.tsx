@@ -12,40 +12,40 @@ const iconMap = {
 
 export const HunterAbout: React.FC = () => {
   return (
-    <section id="hunter" className="py-24 sm:py-32 relative z-10">
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="hunter" className="py-24 md:py-36 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
         <SectionHeading
           number="02"
-          category="THE HUNTER"
+          category="THE HUNTER // PHILOSOPHY & EVOLUTION"
           headline="Every engineer has a path."
-          subheadline="From native device lifecycles to nation-scale enterprise architectures, mastery is forged through confronting real production complexity."
+          subheadline="From native device memory constraints to nation-scale enterprise architectures, technical mastery is forged through confronting real production complexity."
         />
 
         {/* Narrative Intro Card */}
-        <div className="max-w-4xl mx-auto mb-16 p-6 sm:p-8 rounded-xl gothic-card relative overflow-hidden">
+        <div className="max-w-4xl mx-auto mb-16 p-6 sm:p-8 rounded-2xl gothic-card relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#C5A46D]/5 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6 justify-between">
             <div className="space-y-3">
               <span className="font-mono text-xs text-[#C5A46D] uppercase tracking-widest flex items-center gap-2">
-                <Compass className="w-4 h-4" /> Core Philosophy
+                <Compass className="w-4 h-4" /> Core Engineering Creed
               </span>
-              <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-[#E5E0D8]">
+              <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-[#E8E3D9]">
                 Discipline, Precision & Resilient Systems
               </h3>
-              <p className="text-sm sm:text-base text-[#9B9488] leading-relaxed">
+              <p className="text-sm sm:text-base text-[#9E988F] leading-relaxed">
                 {PERSONAL_INFO.summary}
               </p>
             </div>
-            <div className="shrink-0 flex flex-col gap-2 p-4 rounded-lg bg-[#0D0D0F]/80 border border-[#2C2D35] text-xs font-mono w-full md:w-auto">
-              <div className="flex items-center gap-2 text-[#E5E0D8]">
+            <div className="shrink-0 flex flex-col gap-2.5 p-4 rounded-xl bg-[#0D0D10]/90 border border-[#22232B] text-xs font-mono w-full md:w-auto">
+              <div className="flex items-center gap-2 text-[#E8E3D9]">
                 <CheckCircle className="w-3.5 h-3.5 text-[#C5A46D]" />
                 <span>6+ Years Engineering Experience</span>
               </div>
-              <div className="flex items-center gap-2 text-[#E5E0D8]">
+              <div className="flex items-center gap-2 text-[#E8E3D9]">
                 <CheckCircle className="w-3.5 h-3.5 text-[#C5A46D]" />
                 <span>40M+ End-User Platform Scale</span>
               </div>
-              <div className="flex items-center gap-2 text-[#E5E0D8]">
+              <div className="flex items-center gap-2 text-[#E8E3D9]">
                 <CheckCircle className="w-3.5 h-3.5 text-[#C5A46D]" />
                 <span>Zero-Downtime Strangler Migrations</span>
               </div>
@@ -72,25 +72,25 @@ export const HunterAbout: React.FC = () => {
                 >
                   {/* Timeline Card */}
                   <div className="w-full md:w-[calc(50%-40px)]">
-                    <div className="gothic-card p-6 sm:p-7 rounded-xl hover:border-[#C5A46D]/40 transition-all duration-300 group">
+                    <div className="gothic-card p-6 sm:p-7 rounded-xl hover:border-[#C5A46D]/40 transition-all duration-300 group hover:-translate-y-1">
                       <div className="flex items-center justify-between gap-2 mb-3">
-                        <span className="font-mono text-xs text-[#C5A46D] uppercase tracking-widest">
+                        <span className="font-mono text-xs text-[#C5A46D] uppercase tracking-widest font-semibold">
                           ERA {step.phase} // {step.era}
                         </span>
-                        <span className="font-mono text-xs text-[#9B9488] bg-[#0D0D0F] px-2.5 py-1 rounded border border-[#2C2D35]">
+                        <span className="font-mono text-xs text-[#9E988F] bg-[#0D0D10] px-2.5 py-1 rounded border border-[#22232B]">
                           {step.period}
                         </span>
                       </div>
 
-                      <h4 className="font-cinzel text-lg sm:text-xl font-bold text-[#E5E0D8] group-hover:text-[#C5A46D] transition-colors mb-2">
+                      <h4 className="font-cinzel text-lg sm:text-xl font-bold text-[#E8E3D9] group-hover:text-[#C5A46D] transition-colors mb-2">
                         {step.title}
                       </h4>
 
-                      <p className="text-xs sm:text-sm text-[#9B9488] leading-relaxed mb-4">
+                      <p className="text-xs sm:text-sm text-[#9E988F] leading-relaxed mb-4">
                         {step.description}
                       </p>
 
-                      <div className="pt-3 border-t border-[#2C2D35]/80 flex items-start gap-2 text-xs font-mono text-[#E5E0D8]/90">
+                      <div className="pt-3 border-t border-[#22232B] flex items-start gap-2 text-xs font-mono text-[#E8E3D9]/90">
                         <span className="text-[#C5A46D] font-bold">Insight:</span>
                         <span>{step.keyTakeaway}</span>
                       </div>
@@ -98,7 +98,7 @@ export const HunterAbout: React.FC = () => {
                   </div>
 
                   {/* Central Node Badge */}
-                  <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-[#17181C] border-2 border-[#C5A46D]/50 text-[#C5A46D] shadow-[0_0_20px_rgba(197,164,109,0.2)] shrink-0">
+                  <div className="relative z-10 flex items-center justify-center w-12 h-12 rounded-full bg-[#141519] border-2 border-[#C5A46D]/50 text-[#C5A46D] shadow-[0_0_20px_rgba(197,164,109,0.2)] shrink-0">
                     <IconComponent className="w-5 h-5" />
                   </div>
 

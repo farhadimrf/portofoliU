@@ -2,17 +2,18 @@
 
 @layer base {
   :root {
-    --bg-primary: #0D0D0F;
-    --surface: #17181C;
-    --surface-hover: #1F2026;
-    --surface-border: #2A2B33;
-    --text-primary: #E5E0D8;
-    --text-muted: #9B9488;
-    --text-dim: #6B665E;
+    --bg-primary: #0A0A0C;
+    --surface: #141519;
+    --surface-hover: #1C1D24;
+    --surface-border: rgba(255, 255, 255, 0.06);
+    --surface-border-top: rgba(255, 255, 255, 0.12);
+    --text-primary: #E8E3D9;
+    --text-muted: #9E988F;
+    --text-dim: #5E5B54;
     --gold: #C5A46D;
-    --gold-glow: rgba(197, 164, 109, 0.2);
+    --gold-glow: rgba(197, 164, 109, 0.25);
     --blood: #8C2F39;
-    --blood-glow: rgba(140, 47, 57, 0.3);
+    --blood-glow: rgba(140, 47, 57, 0.35);
   }
 
   * {
@@ -22,15 +23,15 @@
   }
 
   html {
-    background-color: #0D0D0F;
-    color: #E5E0D8;
+    background-color: #0A0A0C;
+    color: #E8E3D9;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     scroll-behavior: smooth;
   }
 
   body {
-    background-color: #0D0D0F;
-    color: #E5E0D8;
+    background-color: #0A0A0C;
+    color: #E8E3D9;
     overflow-x: hidden;
     min-height: 100vh;
   }
@@ -40,10 +41,10 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0D0D0F;
+    background: #0A0A0C;
   }
   ::-webkit-scrollbar-thumb {
-    background: #25262F;
+    background: #22232B;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
@@ -64,25 +65,31 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Atmospheric Glows & Visual Elements */
+/* Card surfaces & Glassmorphism */
 .gothic-card {
-  background: linear-gradient(180deg, rgba(23, 24, 28, 0.95) 0%, rgba(16, 17, 20, 0.9) 100%);
-  border: 1px solid rgba(197, 164, 109, 0.12);
-  backdrop-filter: blur(12px);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: #141519;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gothic-card:hover {
   border-color: rgba(197, 164, 109, 0.35);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), 0 0 20px 0 rgba(197, 164, 109, 0.08);
+  border-top-color: rgba(197, 164, 109, 0.5);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.85), 0 0 24px 0 rgba(197, 164, 109, 0.08);
 }
 
 .gothic-card-blood:hover {
   border-color: rgba(140, 47, 57, 0.5);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), 0 0 20px 0 rgba(140, 47, 57, 0.15);
+  border-top-color: rgba(140, 47, 57, 0.7);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.85), 0 0 24px 0 rgba(140, 47, 57, 0.15);
 }
 
-/* Subtle gold border accent lines */
+/* Gold border accent line */
 .gold-line-top {
   position: relative;
 }
@@ -96,98 +103,61 @@
   background: linear-gradient(90deg, transparent, rgba(197, 164, 109, 0.4), transparent);
 }
 
-/* Fog animation */
+/* Atmospheric Fog & Pulse Animations */
 @keyframes fogDrift {
-  0% { transform: translate3d(0, 0, 0); opacity: 0.2; }
-  50% { transform: translate3d(50px, -15px, 0); opacity: 0.35; }
-  100% { transform: translate3d(0, 0, 0); opacity: 0.2; }
+  0% { transform: translate3d(0, 0, 0); opacity: 0.18; }
+  50% { transform: translate3d(40px, -20px, 0); opacity: 0.32; }
+  100% { transform: translate3d(0, 0, 0); opacity: 0.18; }
 }
 
 @keyframes pulseGlow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.05); }
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.06); }
+}
+
+@keyframes sigilFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes runePulse {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(197, 164, 109, 0.3)); }
+  50% { filter: drop-shadow(0 0 20px rgba(197, 164, 109, 0.7)); }
 }
 
 .animate-fog-1 {
-  animation: fogDrift 24s ease-in-out infinite;
+  animation: fogDrift 22s ease-in-out infinite;
 }
 
 .animate-fog-2 {
-  animation: fogDrift 32s ease-in-out infinite reverse;
+  animation: fogDrift 30s ease-in-out infinite reverse;
 }
 
 .animate-pulse-glow {
   animation: pulseGlow 6s ease-in-out infinite;
 }
 
-/* Hunter Sigil line styles */
-.sigil-main-path {
-  stroke: #C5A46D;
-  stroke-width: 5;
-  stroke-linecap: round;
-  fill: none;
-  stroke-dasharray: 400;
-  stroke-dashoffset: 400;
-  transition: all 0.5s ease;
+.animate-sigil-float {
+  animation: sigilFloat 6s ease-in-out infinite;
 }
 
-.sigil-blood-path {
-  stroke: #8C2F39;
-  stroke-width: 4.5;
-  stroke-linecap: round;
-  fill: none;
-  stroke-dasharray: 300;
-  stroke-dashoffset: 300;
-  transition: all 0.5s ease;
+.animate-rune-pulse {
+  animation: runePulse 4s ease-in-out infinite;
 }
 
-.sigil-container:hover .sigil-main-path {
+/* Hunter Sigil stroke styles */
+.sigil-stroke {
+  transition: filter 0.4s ease, stroke 0.4s ease;
+}
+
+.sigil-container:hover .sigil-stroke-gold {
   stroke: #dfbe88;
-  filter: drop-shadow(0 0 10px rgba(197, 164, 109, 0.6));
+  filter: drop-shadow(0 0 15px rgba(197, 164, 109, 0.65));
 }
 
-.sigil-container:hover .sigil-blood-path {
+.sigil-container:hover .sigil-stroke-blood {
   stroke: #b33947;
-  filter: drop-shadow(0 0 10px rgba(140, 47, 57, 0.8));
-}
-
-/* Lantern cursor glow */
-.lantern-glow {
-  pointer-events: none;
-  position: fixed;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(197, 164, 109, 0.045) 0%, rgba(140, 47, 57, 0.02) 40%, transparent 70%);
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  mix-blend-mode: screen;
-  transition: opacity 0.3s ease;
-}
-
-.lantern-core {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(197, 164, 109, 0.8);
-  box-shadow: 0 0 12px 2px rgba(197, 164, 109, 0.6), 0 0 20px 4px rgba(140, 47, 57, 0.4);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 10000;
-  transition: transform 0.1s ease;
-}
-
-/* Grain texture overlay */
-.vignette-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(13, 13, 15, 0.7) 100%);
-  pointer-events: none;
-  z-index: 40;
+  filter: drop-shadow(0 0 15px rgba(140, 47, 57, 0.75));
 }
 
 @media (prefers-reduced-motion: reduce) {

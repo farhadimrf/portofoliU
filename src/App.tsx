@@ -2,6 +2,7 @@ import { InsightProvider } from './hooks/useInsight';
 import { LanternCursor } from './components/LanternCursor';
 import { AtmosphericBackground } from './components/AtmosphericBackground';
 import { Navbar } from './components/Navbar';
+import { InsightHUD } from './components/InsightHUD';
 import { InsightModal } from './components/InsightModal';
 
 // Sections
@@ -20,7 +21,7 @@ import { Contact } from './sections/Contact';
 function App() {
   return (
     <InsightProvider>
-      <div className="relative min-h-screen bg-[#0D0D0F] text-[#E5E0D8] selection:bg-[#8C2F39]/40 selection:text-[#E5E0D8]">
+      <div className="relative min-h-screen bg-[#0A0A0C] text-[#E8E3D9] selection:bg-[#8C2F39]/40 selection:text-[#E8E3D9]">
         {/* Subtle Lantern follower on desktop */}
         <LanternCursor />
 
@@ -29,6 +30,9 @@ function App() {
 
         {/* Minimal fixed navigation bar */}
         <Navbar />
+
+        {/* Interactive Floating Insight HUD & Milestone Toast */}
+        <InsightHUD />
 
         {/* Main Content Layout Container */}
         <main className="relative z-10">
@@ -44,7 +48,7 @@ function App() {
           {/* Section 04: The Regions */}
           <Regions />
 
-          {/* Section 05: The Great Hunt (Case Study) */}
+          {/* Section 05: The Great Hunt (Flagship Case Study) */}
           <GreatHuntCaseStudy />
 
           {/* Section 06: Boss Fights */}

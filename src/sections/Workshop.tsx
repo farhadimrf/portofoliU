@@ -5,12 +5,12 @@ import { CheckCircle } from 'lucide-react';
 
 export const Workshop: React.FC = () => {
   return (
-    <section id="workshop" className="py-24 sm:py-32 relative z-10">
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="workshop" className="py-24 md:py-36 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
         <SectionHeading
           number="08"
-          category="THE WORKSHOP"
-          headline="The Tools & Discipline Behind the Craft"
+          category="THE WORKSHOP // DISCIPLINE & TOOLING"
+          headline="The Standards Behind the Craft"
           subheadline="Quality is not an accident of genius; it is the natural consequence of rigorous automation, pre-commit hygiene, and unwavering standards."
         />
 
@@ -19,23 +19,23 @@ export const Workshop: React.FC = () => {
           {WORKSHOP_PRACTICES.map((practice, idx) => (
             <div
               key={idx}
-              className="gothic-card p-6 sm:p-7 rounded-xl flex flex-col justify-between space-y-4 hover:border-[#C5A46D]/40 transition-all duration-300"
+              className="gothic-card p-6 sm:p-7 rounded-2xl flex flex-col justify-between space-y-4 hover:border-[#C5A46D]/40 transition-all duration-300 hover:-translate-y-1"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs text-[#C5A46D] uppercase tracking-wider">
+                  <span className="font-mono text-xs text-[#C5A46D] uppercase tracking-wider font-semibold">
                     {practice.category}
                   </span>
-                  <div className="w-6 h-6 rounded bg-[#0D0D0F] border border-[#2C2D35] flex items-center justify-center text-[#9B9488] text-xs font-mono">
+                  <div className="w-7 h-7 rounded bg-[#0D0D10] border border-[#22232B] flex items-center justify-center text-[#9E988F] text-xs font-mono">
                     0{idx + 1}
                   </div>
                 </div>
 
-                <h3 className="font-cinzel text-lg sm:text-xl font-bold text-[#E5E0D8]">
+                <h3 className="font-cinzel text-lg sm:text-xl font-bold text-[#E8E3D9]">
                   {practice.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-[#9B9488] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#9E988F] leading-relaxed">
                   {practice.description}
                 </p>
 
@@ -44,7 +44,7 @@ export const Workshop: React.FC = () => {
                   {practice.tools.map((t) => (
                     <span
                       key={t}
-                      className="px-2.5 py-1 rounded bg-[#0D0D0F] border border-[#2C2D35] text-xs font-mono text-[#E5E0D8]"
+                      className="px-2.5 py-1 rounded bg-[#0D0D10] border border-[#22232B] text-xs font-mono text-[#E8E3D9]"
                     >
                       {t}
                     </span>
@@ -53,7 +53,7 @@ export const Workshop: React.FC = () => {
               </div>
 
               {/* Standard Guarantees */}
-              <div className="pt-4 border-t border-[#2C2D35]/80 flex items-start gap-2 text-xs font-mono text-[#C5A46D]">
+              <div className="pt-4 border-t border-[#22232B] flex items-start gap-2 text-xs font-mono text-[#C5A46D]">
                 <CheckCircle className="w-4 h-4 text-[#C5A46D] shrink-0 mt-0.5" />
                 <span>Standard: {practice.standard}</span>
               </div>
