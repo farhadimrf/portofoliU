@@ -1,122 +1,76 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { InsightProvider } from './hooks/useInsight';
+import { LanternCursor } from './components/LanternCursor';
+import { AtmosphericBackground } from './components/AtmosphericBackground';
+import { Navbar } from './components/Navbar';
+import { InsightModal } from './components/InsightModal';
+
+// Sections
+import { Hero } from './sections/Hero';
+import { HunterAbout } from './sections/HunterAbout';
+import { OldSystems } from './sections/OldSystems';
+import { Regions } from './sections/Regions';
+import { GreatHuntCaseStudy } from './sections/GreatHuntCaseStudy';
+import { BossFights } from './sections/BossFights';
+import { Arsenal } from './sections/Arsenal';
+import { Workshop } from './sections/Workshop';
+import { InsightLore } from './sections/InsightLore';
+import { HuntersDream } from './sections/HuntersDream';
+import { Contact } from './sections/Contact';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <InsightProvider>
+      <div className="relative min-h-screen bg-[#0D0D0F] text-[#E5E0D8] selection:bg-[#8C2F39]/40 selection:text-[#E5E0D8]">
+        {/* Subtle Lantern follower on desktop */}
+        <LanternCursor />
 
-      <div className="ticks"></div>
+        {/* Multi-layered gothic atmospheric background */}
+        <AtmosphericBackground />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        {/* Minimal fixed navigation bar */}
+        <Navbar />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+        {/* Main Content Layout Container */}
+        <main className="relative z-10">
+          {/* Section 01: The Hunt */}
+          <Hero />
+
+          {/* Section 02: The Hunter */}
+          <HunterAbout />
+
+          {/* Section 03: The Old Systems */}
+          <OldSystems />
+
+          {/* Section 04: The Regions */}
+          <Regions />
+
+          {/* Section 05: The Great Hunt (Case Study) */}
+          <GreatHuntCaseStudy />
+
+          {/* Section 06: Boss Fights */}
+          <BossFights />
+
+          {/* Section 07: Hunter's Arsenal */}
+          <Arsenal />
+
+          {/* Section 08: The Workshop */}
+          <Workshop />
+
+          {/* Section 09: Insight */}
+          <InsightLore />
+
+          {/* Section 10: The Hunter's Dream */}
+          <HuntersDream />
+
+          {/* Section 11: Contact & Footer */}
+          <Contact />
+        </main>
+
+        {/* Unlocked Insight Principles Modal */}
+        <InsightModal />
+      </div>
+    </InsightProvider>
+  );
 }
 
-export default App
+export default App;
