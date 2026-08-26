@@ -4,6 +4,7 @@ import { AtmosphericBackground } from './components/AtmosphericBackground';
 import { Navbar } from './components/Navbar';
 import { InsightHUD } from './components/InsightHUD';
 import { InsightModal } from './components/InsightModal';
+import { Footer } from './components/Footer';
 
 // Sections
 import { Hero } from './sections/Hero';
@@ -66,9 +67,12 @@ function App() {
           {/* Section 10: The Hunter's Dream */}
           <HuntersDream />
 
-          {/* Section 11: Contact & Footer */}
+          {/* Section 11: Contact */}
           <Contact />
         </main>
+
+        {/* Global Elevated Engineering Footer */}
+        <Footer />
 
         {/* Unlocked Insight Principles Modal */}
         <InsightModal />

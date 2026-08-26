@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SectionHeading } from '../components/SectionHeading';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import { FileDown, Check, Copy, ArrowUp, Send } from 'lucide-react';
+import { FileDown, Check, Copy, Send } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -12,12 +12,8 @@ export const Contact: React.FC = () => {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <footer id="contact" className="pt-20 md:pt-28 pb-16 relative z-10 border-t border-[rgba(255,255,255,0.08)] bg-gradient-to-b from-[#0A0A0C] via-[#0E0F12] to-[#08080A]">
+    <section id="contact" className="pt-20 md:pt-28 pb-12 relative z-10 border-t border-white/[0.08] bg-gradient-to-b from-[#0A0A0C] via-[#0E0F12] to-[#0A0A0C]">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <SectionHeading
           number="11"
@@ -113,28 +109,7 @@ export const Contact: React.FC = () => {
             </div>
           </div>
         </div>
-
-        {/* Minimal Footer Signature */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-[rgba(255,255,255,0.06)] text-xs sm:text-sm font-mono text-[#B8B2A7]">
-          <div className="flex items-center gap-2">
-            <span className="text-[#C5A46D] font-cinzel font-bold">{PERSONAL_INFO.shortName}</span>
-            <span>•</span>
-            <span className="text-[#EAE6DF] font-semibold">{PERSONAL_INFO.name} · Software Engineer</span>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <span className="text-xs text-[#847F78]">Crafted with React 19, Vite, TypeScript & GSAP</span>
-            <button
-              onClick={scrollToTop}
-              className="p-2 rounded-lg bg-[#141519] border border-[rgba(255,255,255,0.08)] text-[#C5A46D] hover:text-[#EAE6DF] hover:border-[#C5A46D]/60 transition-colors cursor-pointer"
-              title="Return to top"
-              aria-label="Scroll to top"
-            >
-              <ArrowUp className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
       </div>
-    </footer>
+    </section>
   );
 };
