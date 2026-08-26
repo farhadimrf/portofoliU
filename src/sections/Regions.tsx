@@ -11,6 +11,21 @@ export const Regions: React.FC = () => {
     setSelectedId(selectedId === id ? '' : id);
   };
 
+  const renderHighlight = (text: string) => {
+    const colonIndex = text.indexOf(': ');
+    if (colonIndex !== -1) {
+      const title = text.slice(0, colonIndex);
+      const body = text.slice(colonIndex + 2);
+      return (
+        <span>
+          <strong className="font-semibold text-[#EAE6DF]">{title}:</strong>{' '}
+          <span className="text-[#B8B2A7]">{body}</span>
+        </span>
+      );
+    }
+    return <span>{text}</span>;
+  };
+
   return (
     <section id="regions" className="py-20 md:py-28 relative z-10">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
@@ -115,11 +130,11 @@ export const Regions: React.FC = () => {
                           <Briefcase className="w-3.5 h-3.5 text-[#C5A46D]" />
                           Key Architectural Contributions
                         </span>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2.5">
                           {exp.highlights.map((highlight, idx) => (
                             <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#EAE6DF] leading-relaxed">
                               <CheckCircle2 className="w-3.5 h-3.5 text-[#C5A46D] shrink-0 mt-0.5" />
-                              <span>{highlight}</span>
+                              <span>{renderHighlight(highlight)}</span>
                             </li>
                           ))}
                         </ul>
@@ -190,11 +205,11 @@ export const Regions: React.FC = () => {
                     <Briefcase className="w-3.5 h-3.5 text-[#C5A46D]" />
                     Key Architectural Contributions
                   </span>
-                  <ul className="space-y-2.5">
+                  <ul className="space-y-3">
                     {activeExp.highlights.map((highlight, idx) => (
                       <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-[#EAE6DF] leading-relaxed">
                         <CheckCircle2 className="w-4 h-4 text-[#C5A46D] shrink-0 mt-1" />
-                        <span>{highlight}</span>
+                        <span>{renderHighlight(highlight)}</span>
                       </li>
                     ))}
                   </ul>
