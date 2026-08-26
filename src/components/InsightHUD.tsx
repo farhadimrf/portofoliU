@@ -21,11 +21,11 @@ export const InsightHUD: React.FC = () => {
       aria-label="Insight"
       className="fixed bottom-5 left-5 z-40 flex flex-col items-start gap-2.5 select-none pointer-events-auto"
     >
-      {/* Toast — appears briefly when insight is gained */}
+      {/* Toast — appears briefly on desktop when insight is gained (hidden on mobile) */}
       {activeToast && (
         <div
           onClick={() => setIsModalOpen(true)}
-          className="max-w-xs p-4 rounded-2xl bg-[#17181C]/95 border border-[#C5A46D]/50 shadow-[0_12px_32px_rgba(0,0,0,0.85)] backdrop-blur-xl animate-in slide-in-from-bottom-3 fade-in duration-300 cursor-pointer group"
+          className="hidden md:block max-w-xs p-4 rounded-2xl bg-[#17181C]/95 border border-[#C5A46D]/50 shadow-[0_12px_32px_rgba(0,0,0,0.85)] backdrop-blur-xl animate-in slide-in-from-bottom-3 fade-in duration-300 cursor-pointer group"
         >
           <div className="flex items-center justify-between gap-2 mb-1.5">
             <span className="font-mono text-xs text-[#C5A46D] uppercase tracking-wider font-semibold">
@@ -42,7 +42,7 @@ export const InsightHUD: React.FC = () => {
               <X className="w-3.5 h-3.5" />
             </button>
           </div>
-          <p className="font-cinzel text-xs sm:text-sm text-[#EAE6DF] italic leading-snug">
+          <p className="font-sans text-xs sm:text-sm text-[#EAE6DF] font-medium leading-relaxed">
             "{activeToast.quote}"
           </p>
           <div className="flex items-center justify-end mt-2 text-xs font-mono text-[#C5A46D] group-hover:text-[#dfbe88] transition-colors font-medium">

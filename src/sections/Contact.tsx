@@ -48,28 +48,28 @@ export const Contact: React.FC = () => {
             </p>
 
             {/* Email Action Bar */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 w-full max-w-md sm:max-w-none mx-auto">
               <a
                 href={`mailto:${PERSONAL_INFO.email}`}
-                className="w-full sm:w-auto px-5 py-3 rounded-xl bg-gradient-to-r from-[#C5A46D] via-[#dfbe88] to-[#C5A46D] hover:from-[#dfbe88] hover:to-[#C5A46D] text-[#0D0D0F] font-cinzel font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(197,164,109,0.3)] flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
+                className="w-full sm:w-auto px-4 sm:px-5 py-3 rounded-xl bg-gradient-to-r from-[#C5A46D] via-[#dfbe88] to-[#C5A46D] hover:from-[#dfbe88] hover:to-[#C5A46D] text-[#0D0D0F] font-cinzel font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(197,164,109,0.3)] flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap shrink-0"
               >
-                <Send className="w-4 h-4" />
+                <Send className="w-4 h-4 shrink-0" />
                 <span>Send Direct Email</span>
               </a>
 
               <button
                 onClick={handleCopyEmail}
-                className="w-full sm:w-auto px-5 py-3 rounded-xl bg-[#17181C] hover:bg-[#1C1D24] border border-[rgba(255,255,255,0.08)] hover:border-[#C5A46D]/45 text-[#EAE6DF] text-xs sm:text-sm font-mono tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-[0_4px_15px_rgba(0,0,0,0.5)] whitespace-nowrap"
+                className="w-full sm:w-auto px-3.5 sm:px-5 py-3 rounded-xl bg-[#17181C] hover:bg-[#1C1D24] border border-[rgba(255,255,255,0.08)] hover:border-[#C5A46D]/45 text-[#EAE6DF] text-xs sm:text-sm font-mono tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-[0_4px_15px_rgba(0,0,0,0.5)] max-w-full"
               >
                 {copied ? (
                   <>
-                    <Check className="w-4 h-4 text-emerald-400" />
+                    <Check className="w-4 h-4 text-emerald-400 shrink-0" />
                     <span className="text-emerald-400 font-bold">Email Copied!</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4 text-[#C5A46D]" />
-                    <span>Copy: {PERSONAL_INFO.email}</span>
+                    <Copy className="w-4 h-4 text-[#C5A46D] shrink-0" />
+                    <span className="truncate max-w-[230px] sm:max-w-none">Copy: {PERSONAL_INFO.email}</span>
                   </>
                 )}
               </button>

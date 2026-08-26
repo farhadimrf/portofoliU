@@ -9,43 +9,45 @@ export const AtmosphericBackground: React.FC = () => {
   const skylineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Parallax mouse effect for desktop with quickTo
+    // Parallax mouse effect for desktop with quickTo (touch-safe)
     const isTouch = window.matchMedia('(pointer: coarse)').matches;
-    if (isTouch) return;
+    let handleMouseMove: ((e: MouseEvent) => void) | null = null;
 
-    const moonX = moonRef.current ? gsap.quickTo(moonRef.current, 'x', { duration: 1.5, ease: 'power1.out' }) : null;
-    const moonY = moonRef.current ? gsap.quickTo(moonRef.current, 'y', { duration: 1.5, ease: 'power1.out' }) : null;
+    if (!isTouch) {
+      const moonX = moonRef.current ? gsap.quickTo(moonRef.current, 'x', { duration: 1.5, ease: 'power1.out' }) : null;
+      const moonY = moonRef.current ? gsap.quickTo(moonRef.current, 'y', { duration: 1.5, ease: 'power1.out' }) : null;
 
-    const fog1X = fogRef1.current ? gsap.quickTo(fogRef1.current, 'x', { duration: 2.0, ease: 'power1.out' }) : null;
-    const fog1Y = fogRef1.current ? gsap.quickTo(fogRef1.current, 'y', { duration: 2.0, ease: 'power1.out' }) : null;
+      const fog1X = fogRef1.current ? gsap.quickTo(fogRef1.current, 'x', { duration: 2.0, ease: 'power1.out' }) : null;
+      const fog1Y = fogRef1.current ? gsap.quickTo(fogRef1.current, 'y', { duration: 2.0, ease: 'power1.out' }) : null;
 
-    const fog2X = fogRef2.current ? gsap.quickTo(fogRef2.current, 'x', { duration: 2.2, ease: 'power1.out' }) : null;
-    const fog2Y = fogRef2.current ? gsap.quickTo(fogRef2.current, 'y', { duration: 2.2, ease: 'power1.out' }) : null;
+      const fog2X = fogRef2.current ? gsap.quickTo(fogRef2.current, 'x', { duration: 2.2, ease: 'power1.out' }) : null;
+      const fog2Y = fogRef2.current ? gsap.quickTo(fogRef2.current, 'y', { duration: 2.2, ease: 'power1.out' }) : null;
 
-    const skyX = skylineRef.current ? gsap.quickTo(skylineRef.current, 'x', { duration: 1.8, ease: 'power1.out' }) : null;
-    const skyY = skylineRef.current ? gsap.quickTo(skylineRef.current, 'y', { duration: 1.8, ease: 'power1.out' }) : null;
+      const skyX = skylineRef.current ? gsap.quickTo(skylineRef.current, 'x', { duration: 1.8, ease: 'power1.out' }) : null;
+      const skyY = skylineRef.current ? gsap.quickTo(skylineRef.current, 'y', { duration: 1.8, ease: 'power1.out' }) : null;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      const { innerWidth, innerHeight } = window;
-      const xPercent = (e.clientX / innerWidth - 0.5) * 2;
-      const yPercent = (e.clientY / innerHeight - 0.5) * 2;
+      handleMouseMove = (e: MouseEvent) => {
+        const { innerWidth, innerHeight } = window;
+        const xPercent = (e.clientX / innerWidth - 0.5) * 2;
+        const yPercent = (e.clientY / innerHeight - 0.5) * 2;
 
-      moonX?.(xPercent * 8);
-      moonY?.(yPercent * 6);
+        moonX?.(xPercent * 8);
+        moonY?.(yPercent * 6);
 
-      fog1X?.(xPercent * -10);
-      fog1Y?.(yPercent * -6);
+        fog1X?.(xPercent * -10);
+        fog1Y?.(yPercent * -6);
 
-      fog2X?.(xPercent * 12);
-      fog2Y?.(yPercent * 8);
+        fog2X?.(xPercent * 12);
+        fog2Y?.(yPercent * 8);
 
-      skyX?.(xPercent * 6);
-      skyY?.(yPercent * 4);
-    };
+        skyX?.(xPercent * 6);
+        skyY?.(yPercent * 4);
+      };
 
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    }
 
-    // Ambient floating particles canvas (dust / embers)
+    // Ambient floating particles canvas (dust / embers) — runs on all viewports
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -64,7 +66,7 @@ export const AtmosphericBackground: React.FC = () => {
 
     window.addEventListener('resize', handleResize);
 
-    const particleCount = Math.min(width < 768 ? 20 : 50, 55);
+    const particleCount = width < 768 ? 26 : 52;
     const particles: Array<{
       x: number;
       y: number;
@@ -87,7 +89,7 @@ export const AtmosphericBackground: React.FC = () => {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: Math.random() * 1.6 + 0.4,
+        size: Math.random() * 1.5 + 0.5,
         speedX: (Math.random() - 0.5) * 0.2,
         speedY: -Math.random() * 0.3 - 0.08,
         opacity: Math.random() * 0.35 + 0.1,
@@ -127,7 +129,7 @@ export const AtmosphericBackground: React.FC = () => {
     render();
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      if (handleMouseMove) window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrameId);
     };
@@ -190,7 +192,7 @@ export const AtmosphericBackground: React.FC = () => {
         }}
       />
 
-      {/* Layer 5: Ambient floating particle canvas */}
+      {/* Layer 5: Ambient floating particle canvas (smooth on both mobile & desktop) */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />
 
       {/* Vignette border framing */}

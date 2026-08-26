@@ -30,13 +30,13 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
     <div
       className={`mb-10 sm:mb-14 ${isCenter ? 'text-center mx-auto' : 'text-left'} max-w-3xl ${className}`}
     >
-      {/* LEVEL 3: Atmospheric label — small, muted, monospace */}
-      <div className={`flex items-center gap-2 mb-4 ${isCenter ? 'justify-center' : 'justify-start'}`}>
-        <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#C5A46D] font-semibold">
+      {/* LEVEL 3: Atmospheric label — responsive monospace badge */}
+      <div className={`flex flex-wrap items-center gap-2 mb-4 ${isCenter ? 'justify-center text-center' : 'justify-start text-left'}`}>
+        <span className="font-mono text-xs uppercase tracking-[0.22em] text-[#C5A46D] font-semibold shrink-0">
           {number}
         </span>
-        <span className="w-4 h-[1px] bg-[#C5A46D]/40" />
-        <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#847F78] font-semibold">
+        <span className="w-3.5 h-[1px] bg-[#C5A46D]/40 shrink-0" />
+        <span className="font-mono text-xs uppercase tracking-[0.18em] text-[#847F78] font-semibold">
           {category}
         </span>
       </div>

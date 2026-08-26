@@ -33,41 +33,45 @@ export const BossFights: React.FC = () => {
                     : 'bg-[#17181C]/85 border-[rgba(255,255,255,0.06)] hover:border-[#C5A46D]/30 hover:bg-[#1A1B20]'
                 }`}
               >
-                {/* Accordion Header */}
+                {/* Accordion Header: Two-tier uncrowded layout */}
                 <button
                   onClick={() => toggleBoss(boss.id)}
-                  className="w-full p-5 sm:p-6 text-left flex items-start justify-between gap-4 cursor-pointer focus:outline-none"
+                  className="w-full p-5 sm:p-6 text-left flex flex-col gap-2 cursor-pointer focus:outline-none"
                   aria-expanded={isOpen}
                 >
-                  <div className="flex items-start gap-4 flex-1 min-w-0">
-                    <span className="font-mono text-xs text-[#C5A46D] tracking-widest mt-1 shrink-0 font-bold">
-                      {String(idx + 1).padStart(2, '0')}
-                    </span>
+                  {/* Top line: Index + Category on left, Toggle on right */}
+                  <div className="flex items-center justify-between w-full gap-3">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="font-mono text-xs text-[#C5A46D] tracking-widest font-bold">
+                        {String(idx + 1).padStart(2, '0')} //
+                      </span>
+                      <span className="font-mono text-xs uppercase tracking-wider text-[#847F78] font-semibold">
+                        {boss.category}
+                      </span>
+                    </div>
 
-                    <div className="min-w-0">
-                      <div className="flex flex-wrap items-center gap-2 mb-1">
-                        <span className="font-mono text-[11px] uppercase tracking-wider text-[#847F78]">
-                          {boss.category}
-                        </span>
-                        {boss.metrics && (
-                          <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-[#C5A46D]/15 text-[#C5A46D] border border-[#C5A46D]/30 font-semibold">
-                            {boss.metrics}
-                          </span>
-                        )}
-                      </div>
-
-                      <h3 className="text-base sm:text-lg font-bold text-[#EAE6DF] leading-snug">
-                        {boss.bossName}
-                      </h3>
-
-                      <p className="text-xs sm:text-sm text-[#B8B2A7] mt-1 leading-relaxed">
-                        {boss.subtitle}
-                      </p>
+                    <div className="w-8 h-8 rounded-lg bg-[#0D0D0F] border border-[rgba(255,255,255,0.08)] flex items-center justify-center text-[#C5A46D] shrink-0">
+                      {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                     </div>
                   </div>
 
-                  <div className="w-8 h-8 rounded-lg bg-[#0D0D0F] border border-[rgba(255,255,255,0.08)] flex items-center justify-center text-[#C5A46D] shrink-0 mt-1">
-                    {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                  {/* Second line: Metric pill aligned below category */}
+                  {boss.metrics && (
+                    <div className="flex items-center">
+                      <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-md bg-[#C5A46D]/15 text-[#C5A46D] border border-[#C5A46D]/30 font-semibold">
+                        {boss.metrics}
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Title & Subtitle */}
+                  <div className="mt-1">
+                    <h3 className="text-base sm:text-lg font-bold text-[#EAE6DF] leading-snug">
+                      {boss.bossName}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#B8B2A7] mt-1 leading-relaxed">
+                      {boss.subtitle}
+                    </p>
                   </div>
                 </button>
 

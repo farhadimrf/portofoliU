@@ -94,7 +94,7 @@ export const Hero: React.FC = () => {
     <section
       id="hero"
       ref={heroRef}
-      className="relative min-h-screen flex flex-col justify-between pt-28 sm:pt-32 pb-12 overflow-x-hidden select-none"
+      className="relative min-h-[100dvh] flex flex-col justify-between pt-24 sm:pt-28 pb-8 overflow-x-hidden select-none"
     >
       {/* Atmospheric fog and glow layers (touch safe) */}
       <div
@@ -109,11 +109,13 @@ export const Hero: React.FC = () => {
       {/* Centered content container */}
       <div className="max-w-5xl mx-auto px-6 md:px-12 w-full flex-1 flex flex-col items-center justify-center text-center my-auto z-10">
 
-        {/* Availability badge */}
+        {/* Status Pill with Location */}
         <div className="hero-text-anim flex flex-col items-center gap-2 mb-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17181C]/90 border border-[#C5A46D]/30 text-xs font-mono text-[#B8B2A7] shadow-[0_0_20px_rgba(0,0,0,0.5)] backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="tracking-[0.18em] uppercase font-semibold">Available for hire</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/[0.08] bg-[#121316]/80 text-xs font-mono tracking-wider text-[#B8B2A7]">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+            <span className="text-[#EAE6DF]">AVAILABLE FOR HIRE</span>
+            <span className="text-white/20">|</span>
+            <span className="text-[#847F78]">TEHRAN, IRAN</span>
           </div>
         </div>
 
@@ -163,34 +165,29 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Identity block */}
-        <div className="max-w-3xl mx-auto mt-2 space-y-2">
+        <div className="max-w-3xl mx-auto mt-1 space-y-2.5">
           {/* Primary Headline (Name) */}
-          <h1 className="hero-text-anim font-cinzel text-3xl sm:text-5xl md:text-5xl font-bold tracking-[0.12em] text-[#EAE6DF] drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)] leading-tight">
+          <h1 className="hero-text-anim font-cinzel text-2xl sm:text-4xl font-bold tracking-[0.14em] text-[#EAE6DF] whitespace-nowrap drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)] leading-tight">
             MOHAMMADREZA FARHADI
           </h1>
 
-          {/* Secondary Role & Title */}
-          <div className="hero-text-anim flex items-center justify-center gap-3 sm:gap-4 my-3">
+          {/* Single Clean Title/Role Line */}
+          <div className="hero-text-anim flex items-center justify-center gap-3 sm:gap-4 my-2">
             <span className="w-8 sm:w-12 h-[1px] bg-[#C5A46D]/30" />
-            <h2 className="font-mono text-sm sm:text-md md:text-xl tracking-[0.22em] text-[#C5A46D] uppercase font-semibold">
-              Software Engineer // FRONTEND
+            <h2 className="font-mono text-xs sm:text-sm tracking-[0.2em] text-[#C5A46D] uppercase whitespace-nowrap font-semibold">
+              SOFTWARE ENGINEER · FRONTEND
             </h2>
             <span className="w-8 sm:w-12 h-[1px] bg-[#C5A46D]/30" />
           </div>
 
-          {/* Domain Pill / Specialization Tags */}
-          <div className="hero-text-anim text-[11px] sm:text-sm font-mono text-[#847F78] tracking-[0.2em] uppercase mb-4">
-            ARCHITECTURE · SYSTEMS
-          </div>
-
           {/* Impact Quote */}
-          <p className="hero-text-anim text-sm sm:text-xl text-[#B8B2A7] font-sans font-normal max-w-xl mx-auto leading-relaxed mt-20">
+          <p className="hero-text-anim text-sm sm:text-base text-[#B8B2A7] font-sans font-normal max-w-xl mx-auto leading-relaxed mt-3">
             "I build, modernize, and evolve complex web systems."
           </p>
         </div>
 
         {/* CTAs */}
-        <div className="hero-text-anim flex flex-col sm:flex-row items-center justify-center gap-3.5 mt-8 w-full max-w-md mx-auto">
+        <div className="hero-text-anim flex flex-col sm:flex-row items-center justify-center gap-3.5 mt-7 w-full max-w-md mx-auto">
           <button
             onClick={() => scrollToSection('great-hunt')}
             className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-[#C5A46D] via-[#dfbe88] to-[#C5A46D] hover:from-[#dfbe88] hover:to-[#C5A46D] text-[#0D0D0F] font-cinzel font-bold text-xs sm:text-sm tracking-[0.18em] uppercase shadow-[0_0_25px_rgba(197,164,109,0.3)] hover:shadow-[0_0_35px_rgba(197,164,109,0.5)] transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer whitespace-nowrap"
@@ -208,10 +205,10 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator with comfortable spacing */}
       <div
         onClick={() => scrollToSection('hunter')}
-        className="hero-text-anim relative z-10 flex flex-col items-center justify-center gap-2.5 text-center cursor-pointer group mt-6"
+        className="hero-text-anim relative z-10 flex flex-col items-center justify-center gap-2 text-center cursor-pointer group mt-8 mb-2"
       >
         <span className="font-mono text-[10px] tracking-[0.28em] text-[#847F78] uppercase group-hover:text-[#B8B2A7] transition-colors">
           Scroll to explore
