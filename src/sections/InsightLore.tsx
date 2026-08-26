@@ -11,7 +11,7 @@ export const InsightLore: React.FC = () => {
 
   return (
     <section id="insight" className="py-20 md:py-28 relative z-10">
-      <div className="max-w-3xl mx-auto px-6 md:px-12 text-center">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 text-center">
 
         {/* Minimal eye icon */}
         <div className="flex justify-center mb-6">
@@ -20,42 +20,46 @@ export const InsightLore: React.FC = () => {
           </div>
         </div>
 
-        {/* LEVEL 1: Serif quote */}
-        <h2 className="font-cinzel text-xl sm:text-2xl font-bold text-[#EAE6DF] max-w-xl mx-auto leading-snug mb-3">
-          "The deeper your insight, the simpler the architecture becomes."
-        </h2>
+        {/* Header content centered */}
+        <div className="max-w-2xl mx-auto mb-8">
+          {/* LEVEL 1: Serif quote */}
+          <h2 className="font-cinzel text-xl sm:text-2xl md:text-3xl font-bold text-[#EAE6DF] leading-snug mb-3">
+            "The deeper your insight, the simpler the architecture becomes."
+          </h2>
 
-        {/* LEVEL 2: Readable body */}
-        <p className="text-sm sm:text-base text-[#B8B2A7] max-w-lg mx-auto leading-relaxed mb-8">
-          Every complex system problem has already been solved by adhering to fundamental engineering discipline.
-        </p>
+          {/* LEVEL 2: Readable body */}
+          <p className="text-sm sm:text-base text-[#B8B2A7] leading-relaxed">
+            Every complex system problem has already been solved by adhering to fundamental engineering discipline.
+          </p>
+        </div>
 
         {/* Insight status */}
-        <div className="flex items-center justify-center gap-2 mb-6">
+        <div className="flex items-center justify-center gap-2 mb-8">
           <span className="font-mono text-xs text-[#C5A46D] tracking-widest uppercase font-semibold">
             Insight Knowledge: {String(insightCount).padStart(2,'0')} / {String(maxInsight).padStart(2,'0')}
           </span>
         </div>
 
-        {/* Quick principles preview — readable modern typography & uncut text */}
+        {/* Full-width Axiom cards grid */}
         {principles.slice(0, 3).length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 text-left">
+          <div className="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 mb-10 text-left">
             {principles.slice(0, 3).map((item) => (
               <div
                 key={item.id}
-                className="p-5 sm:p-6 rounded-2xl bg-[#17181C]/95 border border-[rgba(255,255,255,0.08)] flex flex-col justify-between space-y-3 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:border-[#C5A46D]/40 transition-colors"
+                className="p-6 flex flex-col justify-between min-h-[220px] rounded-xl bg-[#121316] border border-white/[0.06] hover:border-[#C5A46D]/40 transition-colors shadow-[0_4px_20px_rgba(0,0,0,0.5)]"
               >
                 <div>
-                  <span className="font-mono text-xs text-[#C5A46D] uppercase tracking-wider font-semibold block mb-2">
+                  <span className="text-xs font-mono text-[#C5A46D] tracking-wider mb-3 block">
                     Axiom 0{item.id} · {item.title.replace('Axiom of ', '')}
                   </span>
-                  <p className="font-sans text-sm sm:text-base text-[#EAE6DF] font-medium leading-relaxed">
+                  <p className="text-sm sm:text-base text-[#EAE6DF] font-sans leading-relaxed flex-grow">
                     "{item.quote}"
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-[rgba(255,255,255,0.06)]">
-                  <span className="font-mono text-[11px] text-[#847F78]">Architectural Axiom</span>
+                <div className="mt-6 pt-3 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono text-[#847F78]">
+                  <span>Architectural Axiom</span>
+                  <span className="text-[#C5A46D]">Core Truth</span>
                 </div>
               </div>
             ))}
