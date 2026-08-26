@@ -22,12 +22,29 @@ export const Navbar: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 40);
 
+      // Edge case: when user reaches near bottom of document, force active nav item to 'contact'
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
+        setActiveSection('contact');
+        return;
+      }
+
+      // Check top of page
+      if (window.scrollY < 120) {
+        setActiveSection('hero');
+        return;
+      }
+
       const sections = NAV_LINKS.map((l) => l.href.substring(1));
-      for (const sectionId of [...sections].reverse()) {
+      const viewportHeight = window.innerHeight;
+
+      // Evaluate sections from bottom to top with clean viewport threshold
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const sectionId = sections[i];
         const el = document.getElementById(sectionId);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 200) {
+          // Active when section top crosses into upper 35% of viewport
+          if (rect.top <= viewportHeight * 0.35) {
             setActiveSection(sectionId);
             break;
           }
@@ -36,6 +53,7 @@ export const Navbar: React.FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -56,17 +74,15 @@ export const Navbar: React.FC = () => {
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between">
 
-          {/* Logo */}
+          {/* Logo with elegant clean MRF monogram */}
           <a
             href="#hero"
             onClick={(e) => { e.preventDefault(); handleNavClick('#hero'); }}
             className="group flex items-center gap-3 focus:outline-none"
           >
-            <div className="w-8 h-8 rounded-lg bg-[#17181C] border border-[#C5A46D]/30 flex items-center justify-center group-hover:border-[#C5A46D]/60 transition-colors shadow-[0_0_10px_rgba(197,164,109,0.1)]">
-              <span className="font-cinzel text-xs font-bold text-[#C5A46D] group-hover:text-[#dfbe88] transition-colors">
-                {PERSONAL_INFO.shortName}
-              </span>
-            </div>
+            <span className="font-cinzel text-base sm:text-lg font-bold text-[#C5A46D] tracking-wider group-hover:text-[#dfbe88] transition-colors">
+              {PERSONAL_INFO.shortName}
+            </span>
             <div className="hidden sm:flex flex-col">
               <span className="font-cinzel text-xs font-bold tracking-[0.18em] text-[#EAE6DF] group-hover:text-[#C5A46D] transition-colors">
                 M. FARHADI

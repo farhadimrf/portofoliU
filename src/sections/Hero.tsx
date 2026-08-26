@@ -43,6 +43,15 @@ export const Hero: React.FC = () => {
         ease: 'sine.inOut',
       });
 
+      // Smooth vertical glide for scroll chevron icon
+      gsap.to('.scroll-chevron', {
+        y: 3,
+        duration: 1.2,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+      });
+
       // Mouse parallax for subtle background depth (desktop only, doesn't interfere with touch scroll)
       const isTouch = window.matchMedia('(pointer: coarse)').matches;
       if (!isTouch && heroRef.current) {
@@ -185,15 +194,15 @@ export const Hero: React.FC = () => {
         <div className="hero-text-anim flex flex-col sm:flex-row items-center justify-center gap-3.5 mt-8 w-full max-w-md mx-auto">
           <button
             onClick={() => scrollToSection('great-hunt')}
-            className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#C5A46D] via-[#dfbe88] to-[#C5A46D] hover:from-[#dfbe88] hover:to-[#C5A46D] text-[#0D0D0F] font-cinzel font-bold text-xs sm:text-sm tracking-[0.2em] uppercase shadow-[0_0_28px_rgba(197,164,109,0.35)] hover:shadow-[0_0_38px_rgba(197,164,109,0.55)] transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-[#C5A46D] via-[#dfbe88] to-[#C5A46D] hover:from-[#dfbe88] hover:to-[#C5A46D] text-[#0D0D0F] font-cinzel font-bold text-xs sm:text-sm tracking-[0.18em] uppercase shadow-[0_0_25px_rgba(197,164,109,0.3)] hover:shadow-[0_0_35px_rgba(197,164,109,0.5)] transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer whitespace-nowrap"
           >
             <span>Begin the Hunt</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform shrink-0" />
           </button>
 
           <button
             onClick={() => scrollToSection('regions')}
-            className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#17181C]/90 hover:bg-[#1C1D24] border border-[#C5A46D]/30 hover:border-[#C5A46D]/60 text-[#EAE6DF] font-cinzel font-semibold text-xs sm:text-sm tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#17181C]/90 hover:bg-[#1C1D24] border border-[#C5A46D]/30 hover:border-[#C5A46D]/60 text-[#EAE6DF] font-cinzel font-semibold text-xs sm:text-sm tracking-[0.18em] uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-[0_4px_20px_rgba(0,0,0,0.5)] backdrop-blur-md whitespace-nowrap"
           >
             <span>View Experience</span>
           </button>
@@ -203,13 +212,13 @@ export const Hero: React.FC = () => {
       {/* Scroll indicator */}
       <div
         onClick={() => scrollToSection('hunter')}
-        className="hero-text-anim relative z-10 flex flex-col items-center justify-center gap-2 text-center cursor-pointer group mt-6"
+        className="hero-text-anim relative z-10 flex flex-col items-center justify-center gap-2.5 text-center cursor-pointer group mt-6"
       >
         <span className="font-mono text-[10px] tracking-[0.28em] text-[#847F78] uppercase group-hover:text-[#B8B2A7] transition-colors">
           Scroll to explore
         </span>
-        <div className="w-5 h-5 rounded-full border border-[#C5A46D]/30 flex items-center justify-center group-hover:border-[#C5A46D]/60 transition-colors">
-          <ChevronDown className="w-3 h-3 text-[#C5A46D] animate-bounce" />
+        <div className="w-9 h-9 rounded-full border border-[#C5A46D]/30 flex items-center justify-center group-hover:border-[#C5A46D]/60 transition-colors shadow-[0_0_10px_rgba(197,164,109,0.1)]">
+          <ChevronDown className="scroll-chevron w-4 h-4 text-[#C5A46D]" />
         </div>
       </div>
     </section>

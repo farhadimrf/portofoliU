@@ -80,7 +80,7 @@ export const InsightModal: React.FC = () => {
 
                 {isUnlocked ? (
                   <>
-                    <p className="font-cinzel text-base sm:text-lg font-bold text-[#EAE6DF] mb-2 italic">
+                    <p className="font-sans text-base sm:text-lg font-bold text-[#EAE6DF] mb-2">
                       "{item.quote}"
                     </p>
                     <p className="text-sm sm:text-base text-[#B8B2A7] leading-relaxed">

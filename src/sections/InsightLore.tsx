@@ -37,20 +37,26 @@ export const InsightLore: React.FC = () => {
           </span>
         </div>
 
-        {/* Quick principles preview */}
+        {/* Quick principles preview — readable modern typography & uncut text */}
         {principles.slice(0, 3).length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 mb-8 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10 text-left">
             {principles.slice(0, 3).map((item) => (
               <div
                 key={item.id}
-                className="p-4 rounded-xl bg-[#17181C]/90 border border-[rgba(255,255,255,0.08)] space-y-1.5 shadow-[0_4px_15px_rgba(0,0,0,0.5)]"
+                className="p-5 sm:p-6 rounded-2xl bg-[#17181C]/95 border border-[rgba(255,255,255,0.08)] flex flex-col justify-between space-y-3 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:border-[#C5A46D]/40 transition-colors"
               >
-                <span className="font-mono text-[10px] text-[#C5A46D] uppercase tracking-wider font-semibold block">
-                  Axiom {String(item.id).padStart(2,'0')}
-                </span>
-                <p className="text-xs sm:text-sm text-[#EAE6DF] font-cinzel italic line-clamp-2 leading-relaxed">
-                  "{item.quote}"
-                </p>
+                <div>
+                  <span className="font-mono text-xs text-[#C5A46D] uppercase tracking-wider font-semibold block mb-2">
+                    Axiom 0{item.id} · {item.title.replace('Axiom of ', '')}
+                  </span>
+                  <p className="font-sans text-sm sm:text-base text-[#EAE6DF] font-medium leading-relaxed">
+                    "{item.quote}"
+                  </p>
+                </div>
+
+                <div className="pt-2 border-t border-[rgba(255,255,255,0.06)]">
+                  <span className="font-mono text-[11px] text-[#847F78]">Architectural Axiom</span>
+                </div>
               </div>
             ))}
           </div>

@@ -29,6 +29,16 @@ export const Contact: React.FC = () => {
         {/* Contact Action Center */}
         <div className="max-w-3xl mx-auto gothic-card p-8 sm:p-12 rounded-3xl border-[#C5A46D]/35 text-center relative overflow-hidden mb-16 bg-[#141519]/95 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
           <div className="space-y-6">
+            {/* Personal Identity Header */}
+            <div className="space-y-1 pb-1 max-w-sm mx-auto">
+              <span className="font-mono text-xs text-[#C5A46D] uppercase tracking-widest font-bold block">
+                MOHAMMADREZA FARHADI
+              </span>
+              <span className="font-sans text-xs sm:text-sm text-[#B8B2A7] font-medium block">
+                Senior Frontend / Software Engineer
+              </span>
+            </div>
+
             <h3 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold text-[#EAE6DF]">
               Let's Build Something Exceptional.
             </h3>
@@ -38,10 +48,10 @@ export const Contact: React.FC = () => {
             </p>
 
             {/* Email Action Bar */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <a
                 href={`mailto:${PERSONAL_INFO.email}`}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#C5A46D] via-[#dfbe88] to-[#C5A46D] hover:from-[#dfbe88] hover:to-[#C5A46D] text-[#0A0A0C] font-cinzel font-bold text-xs sm:text-sm uppercase tracking-widest transition-all shadow-[0_0_25px_rgba(197,164,109,0.35)] flex items-center justify-center gap-2.5 cursor-pointer"
+                className="w-full sm:w-auto px-5 py-3 rounded-xl bg-gradient-to-r from-[#C5A46D] via-[#dfbe88] to-[#C5A46D] hover:from-[#dfbe88] hover:to-[#C5A46D] text-[#0D0D0F] font-cinzel font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(197,164,109,0.3)] flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
               >
                 <Send className="w-4 h-4" />
                 <span>Send Direct Email</span>
@@ -49,7 +59,7 @@ export const Contact: React.FC = () => {
 
               <button
                 onClick={handleCopyEmail}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#17181C] hover:bg-[#1C1D24] border border-[rgba(255,255,255,0.08)] hover:border-[#C5A46D]/45 text-[#EAE6DF] text-xs sm:text-sm font-mono tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-[0_4px_15px_rgba(0,0,0,0.5)]"
+                className="w-full sm:w-auto px-5 py-3 rounded-xl bg-[#17181C] hover:bg-[#1C1D24] border border-[rgba(255,255,255,0.08)] hover:border-[#C5A46D]/45 text-[#EAE6DF] text-xs sm:text-sm font-mono tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-[0_4px_15px_rgba(0,0,0,0.5)] whitespace-nowrap"
               >
                 {copied ? (
                   <>
