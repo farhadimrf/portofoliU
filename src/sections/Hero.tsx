@@ -165,23 +165,32 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Identity block */}
-        <div className="max-w-3xl mx-auto mt-1 space-y-2.5">
-          {/* Primary Headline (Name) */}
-          <h1 className="hero-text-anim font-cinzel text-2xl sm:text-4xl font-bold tracking-[0.14em] text-[#EAE6DF] whitespace-nowrap drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)] leading-tight">
-            MOHAMMADREZA FARHADI
+        <div className="max-w-3xl mx-auto mt-1 space-y-2">
+          {/* Primary Headline (Name: 2 lines on mobile, 1 line on desktop) */}
+          <h1 className="hero-text-anim font-cinzel text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[0.14em] text-[#EAE6DF] text-center flex flex-col md:flex-row items-center justify-center md:gap-3 leading-tight drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)]">
+            <span>MOHAMMADREZA</span>
+            <span>FARHADI</span>
           </h1>
 
-          {/* Single Clean Title/Role Line */}
-          <div className="hero-text-anim flex items-center justify-center gap-3 sm:gap-4 my-2">
-            <span className="w-8 sm:w-12 h-[1px] bg-[#C5A46D]/30" />
-            <h2 className="font-mono text-xs sm:text-sm tracking-[0.2em] text-[#C5A46D] uppercase whitespace-nowrap font-semibold">
-              SOFTWARE ENGINEER · FRONTEND
-            </h2>
-            <span className="w-8 sm:w-12 h-[1px] bg-[#C5A46D]/30" />
+          {/* Role & Specialization Subtitle */}
+          <div className="hero-text-anim flex flex-col items-center justify-center my-3">
+            {/* Line 1: Software Engineer with divider rules */}
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <span className="w-6 sm:w-10 h-[1px] bg-[#C5A46D]/40" />
+              <span className="font-mono text-xs sm:text-sm tracking-[0.22em] text-[#C5A46D] uppercase font-semibold">
+                SOFTWARE ENGINEER
+              </span>
+              <span className="w-6 sm:w-10 h-[1px] bg-[#C5A46D]/40" />
+            </div>
+
+            {/* Line 2: Frontend specialization */}
+            <span className="font-mono text-[11px] sm:text-xs tracking-[0.25em] text-[#847F78] uppercase mt-1 font-medium">
+              FRONTEND
+            </span>
           </div>
 
           {/* Impact Quote */}
-          <p className="hero-text-anim text-sm sm:text-base text-[#B8B2A7] font-sans font-normal max-w-xl mx-auto leading-relaxed mt-3">
+          <p className="hero-text-anim text-sm sm:text-base text-[#B8B2A7] font-sans font-normal w-full max-w-sm sm:max-w-md mx-auto text-center px-4 leading-relaxed mt-2">
             "I build, modernize, and evolve complex web systems."
           </p>
         </div>
