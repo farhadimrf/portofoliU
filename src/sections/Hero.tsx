@@ -1,6 +1,5 @@
 import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { PERSONAL_INFO } from '../data/portfolioData';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 
 export const Hero: React.FC = () => {
@@ -164,29 +163,29 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Identity block */}
-        <div className="max-w-2xl mx-auto mt-2 space-y-3">
-          {/* Name */}
-          <h2 className="hero-text-anim font-cinzel text-lg sm:text-xl md:text-2xl font-semibold tracking-[0.18em] text-[#EAE6DF]/90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
-            {PERSONAL_INFO.name.toUpperCase()}
-          </h2>
+        <div className="max-w-3xl mx-auto mt-2 space-y-2">
+          {/* Primary Headline (Name) */}
+          <h1 className="hero-text-anim font-cinzel text-3xl sm:text-5xl md:text-5xl font-bold tracking-[0.12em] text-[#EAE6DF] drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)] leading-tight">
+            MOHAMMADREZA FARHADI
+          </h1>
 
-          {/* Primary Identity: SOFTWARE ENGINEER */}
-          <div className="hero-text-anim flex items-center justify-center gap-3 sm:gap-5 mt-1">
-            <div className="w-8 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A46D]/70" />
-            <h1 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold text-[#C5A46D] tracking-widest uppercase drop-shadow-[0_0_20px_rgba(197,164,109,0.3)]">
-              {PERSONAL_INFO.title}
-            </h1>
-            <div className="w-8 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A46D]/70" />
+          {/* Secondary Role & Title */}
+          <div className="hero-text-anim flex items-center justify-center gap-3 sm:gap-4 my-3">
+            <span className="w-8 sm:w-12 h-[1px] bg-[#C5A46D]/30" />
+            <h2 className="font-mono text-sm sm:text-md md:text-xl tracking-[0.22em] text-[#C5A46D] uppercase font-semibold">
+              Software Engineer // FRONTEND
+            </h2>
+            <span className="w-8 sm:w-12 h-[1px] bg-[#C5A46D]/30" />
           </div>
 
-          {/* Specialization */}
-          <div className="hero-text-anim font-mono text-xs sm:text-sm tracking-[0.25em] text-[#B8B2A7] uppercase mt-1 font-semibold">
-            {PERSONAL_INFO.specialization}
+          {/* Domain Pill / Specialization Tags */}
+          <div className="hero-text-anim text-[11px] sm:text-sm font-mono text-[#847F78] tracking-[0.2em] uppercase mb-4">
+            ARCHITECTURE · SYSTEMS
           </div>
 
-          {/* Professional Statement */}
-          <p className="hero-text-anim pt-3 text-base sm:text-lg md:text-xl text-[#EAE6DF] font-normal max-w-xl mx-auto leading-relaxed">
-            "{PERSONAL_INFO.tagline}"
+          {/* Impact Quote */}
+          <p className="hero-text-anim text-sm sm:text-xl text-[#B8B2A7] font-sans font-normal max-w-xl mx-auto leading-relaxed mt-20">
+            "I build, modernize, and evolve complex web systems."
           </p>
         </div>
 
