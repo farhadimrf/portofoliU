@@ -1,13 +1,13 @@
 import React from 'react';
 import { useInsight } from '../hooks/useInsight';
-import { Eye, Key } from 'lucide-react';
+import { Eye } from 'lucide-react';
 
 /**
  * InsightLore — intentionally understated.
  * A quiet interlude between sections. Should feel discovered, not announced.
  */
 export const InsightLore: React.FC = () => {
-  const { insightCount, maxInsight, principles, incrementInsight, setIsModalOpen } = useInsight();
+  const { insightCount, maxInsight, principles, setIsModalOpen } = useInsight();
 
   return (
     <section id="insight" className="py-20 md:py-28 relative z-10">
@@ -36,7 +36,7 @@ export const InsightLore: React.FC = () => {
         {/* Insight status */}
         <div className="flex items-center justify-center gap-2 mb-8">
           <span className="font-mono text-xs text-[#C5A46D] tracking-widest uppercase font-semibold">
-            Insight Knowledge: {String(insightCount).padStart(2,'0')} / {String(maxInsight).padStart(2,'0')}
+            Insight Knowledge: {String(insightCount).padStart(2, '0')} / {String(maxInsight).padStart(2, '0')}
           </span>
         </div>
 
@@ -74,14 +74,6 @@ export const InsightLore: React.FC = () => {
           >
             <Eye className="w-4 h-4" />
             <span>Open Archives</span>
-          </button>
-
-          <button
-            onClick={() => incrementInsight(1)}
-            className="px-4 py-2.5 rounded-xl bg-[#17181C]/70 hover:bg-[#17181C] border border-[rgba(255,255,255,0.08)] text-[#B8B2A7] hover:text-[#EAE6DF] text-xs font-mono tracking-wider transition-all flex items-center gap-2 cursor-pointer"
-          >
-            <Key className="w-3.5 h-3.5 text-[#C5A46D]" />
-            <span>Commune (+1)</span>
           </button>
         </div>
       </div>

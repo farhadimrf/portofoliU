@@ -110,7 +110,7 @@ export const Hero: React.FC = () => {
       <div className="max-w-5xl mx-auto px-6 md:px-12 w-full flex-1 flex flex-col items-center justify-center text-center my-auto z-10">
 
         {/* Status Pill with Location */}
-        <div className="hero-text-anim flex flex-col items-center gap-2 mb-6">
+        <div className="hero-text-anim flex flex-col items-center gap-2 mb-10 mt-15 sm:mt-0">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/[0.08] bg-[#121316]/80 text-xs font-mono tracking-wider text-[#B8B2A7]">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
             <span className="text-[#EAE6DF]">AVAILABLE FOR HIRE</span>
@@ -167,7 +167,7 @@ export const Hero: React.FC = () => {
         {/* Identity block */}
         <div className="max-w-3xl mx-auto mt-1 space-y-2">
           {/* Primary Headline (Name: 2 lines on mobile, 1 line on desktop) */}
-          <h1 className="hero-text-anim font-cinzel text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[0.14em] text-[#EAE6DF] text-center flex flex-col md:flex-row items-center justify-center md:gap-3 leading-tight drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)]">
+          <h1 className="hero-text-anim font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold tracking-[0.14em] text-[#EAE6DF] text-center flex flex-col md:flex-row items-center justify-center md:gap-3 leading-tight drop-shadow-[0_2px_15px_rgba(0,0,0,0.8)]">
             <span>MOHAMMADREZA</span>
             <span>FARHADI</span>
           </h1>
@@ -177,14 +177,14 @@ export const Hero: React.FC = () => {
             {/* Line 1: Software Engineer with divider rules */}
             <div className="flex items-center gap-2.5 sm:gap-3">
               <span className="w-6 sm:w-10 h-[1px] bg-[#C5A46D]/40" />
-              <span className="font-mono text-xs sm:text-sm tracking-[0.22em] text-[#C5A46D] uppercase font-semibold">
+              <span className="font-mono text-sm sm:text-base tracking-[0.22em] text-[#C5A46D] uppercase font-semibold">
                 SOFTWARE ENGINEER
               </span>
               <span className="w-6 sm:w-10 h-[1px] bg-[#C5A46D]/40" />
             </div>
 
             {/* Line 2: Frontend specialization */}
-            <span className="font-mono text-[11px] sm:text-xs tracking-[0.25em] text-[#847F78] uppercase mt-1 font-medium">
+            <span className="font-mono text-sm sm:text-base tracking-[0.25em] text-[#C5A46D] uppercase mt-1 font-medium">
               FRONTEND
             </span>
           </div>
