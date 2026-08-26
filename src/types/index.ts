@@ -10,6 +10,7 @@ export interface ExperienceItem {
   techStack: string[];
   status: 'conquered' | 'current';
   badge?: string;
+  subtitle?: string;
 }
 
 export interface BossFight {

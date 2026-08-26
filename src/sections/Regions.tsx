@@ -65,6 +65,11 @@ export const Regions: React.FC = () => {
                         <p className="text-xs sm:text-sm text-[#B8B2A7] mt-0.5 font-medium">
                           {exp.role}
                         </p>
+                        {exp.subtitle && (
+                          <p className="text-[11px] font-mono text-[#847F78] mt-0.5 line-clamp-1">
+                            {exp.subtitle}
+                          </p>
+                        )}
                       </div>
 
                       {isCurrent && (
@@ -88,12 +93,12 @@ export const Regions: React.FC = () => {
                             <MapPin className="w-3.5 h-3.5 text-[#C5A46D]" /> {exp.location}
                           </span>
                         </div>
-                        <div className="flex items-center gap-2 text-sm text-[#C5A46D] pt-1">
-                          <Building2 className="w-4 h-4" />
+                        <div className="flex flex-wrap items-center gap-2 text-sm text-[#C5A46D] pt-1">
+                          <Building2 className="w-4 h-4 shrink-0" />
                           <span className="font-bold">{exp.company}</span>
-                          {exp.badge && (
-                            <span className="px-2 py-0.5 rounded bg-[#8C2F39]/20 border border-[#8C2F39]/40 text-[#EAE6DF] text-[10px] font-mono">
-                              {exp.badge}
+                          {exp.subtitle && (
+                            <span className="text-[11px] font-mono text-[#847F78] block w-full sm:w-auto">
+                              · {exp.subtitle}
                             </span>
                           )}
                         </div>
@@ -164,11 +169,11 @@ export const Regions: React.FC = () => {
                   </h3>
 
                   <div className="flex flex-wrap items-center gap-2.5 text-sm sm:text-base text-[#C5A46D] mt-2">
-                    <Building2 className="w-4 h-4" />
+                    <Building2 className="w-4 h-4 shrink-0" />
                     <span className="font-bold">{activeExp.company}</span>
-                    {activeExp.badge && (
-                      <span className="px-2.5 py-0.5 rounded-md bg-[#8C2F39]/20 border border-[#8C2F39]/40 text-[#EAE6DF] text-xs font-mono">
-                        {activeExp.badge}
+                    {activeExp.subtitle && (
+                      <span className="text-xs font-mono text-[#847F78]">
+                        · {activeExp.subtitle}
                       </span>
                     )}
                   </div>
