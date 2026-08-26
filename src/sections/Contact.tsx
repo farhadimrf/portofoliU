@@ -31,7 +31,7 @@ export const Contact: React.FC = () => {
                 MOHAMMADREZA FARHADI
               </span>
               <span className="font-sans text-xs sm:text-sm text-[#B8B2A7] font-medium block">
-                Senior Frontend / Software Engineer
+                Software Engineer · Frontend
               </span>
             </div>
 

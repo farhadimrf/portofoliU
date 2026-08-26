@@ -51,3 +51,11 @@ export interface WorkshopPractice {
   tools: string[];
   standard: string;
 }
+
+export interface FutureFrontier {
+  title: string;
+  category: string;
+  status: string;
+  description: string;
+  icon: string;
+}

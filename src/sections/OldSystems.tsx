@@ -121,7 +121,7 @@ export const OldSystems: React.FC = () => {
 
               <div className="mt-6 pt-4 border-t border-[#C5A46D]/20 flex items-center justify-between text-xs font-mono text-[#847F78]">
                 <span>Status: Active Production</span>
-                <span className="text-emerald-400 font-semibold">99.98% Uptime</span>
+                <span className="text-emerald-400 font-semibold">Zero Downtime</span>
               </div>
             </div>
           </div>

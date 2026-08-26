@@ -40,8 +40,8 @@ export const GreatHuntCaseStudy: React.FC = () => {
     {
       num: '02',
       title: 'POS Hardware Optimization',
-      highlight: '-58% Bundle Size',
-      desc: 'Optimized rendering pipelines for low-RAM dealer POS terminals, eliminating UI freeze states and achieving smooth 60fps virtualization for 10k+ SKU tables.',
+      highlight: 'Runtime Optimization',
+      desc: 'Optimized rendering pipelines for low-RAM dealer POS terminals, eliminating UI freeze states and achieving smooth list virtualization for high-volume catalogues.',
       icon: Zap,
     },
     {
@@ -54,7 +54,7 @@ export const GreatHuntCaseStudy: React.FC = () => {
     {
       num: '04',
       title: 'Engineering Standards',
-      highlight: '6x Faster PR Cycles',
+      highlight: 'Automated CI Gates',
       desc: 'Standardized frontend workflows via Husky pre-commit hooks, Lint-Staged, Commitlint, automated TypeScript strict CI, and Storybook token systems.',
       icon: GitBranch,
     },

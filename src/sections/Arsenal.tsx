@@ -43,20 +43,17 @@ export const Arsenal: React.FC = () => {
 
                     <div className="flex items-center justify-between gap-3">
                       <div>
-                        {/* LEVEL 2 (PRIMARY): Real Technology Name — Bold & Prominent */}
+                        {/* Technical Domain Archetype */}
+                        <span className="font-mono text-[11px] text-[#C5A46D] tracking-wider uppercase block font-semibold mb-1">
+                          {item.archetype}
+                        </span>
+                        {/* Real Technology Name */}
                         <h3 className="text-base sm:text-lg font-bold text-[#EAE6DF] group-hover:text-[#C5A46D] transition-colors leading-snug">
                           {item.name}
                         </h3>
-                        {/* LEVEL 3 (SUBTLE): Metaphor badge */}
-                        <span className="font-mono text-[11px] text-[#847F78] group-hover:text-[#B8B2A7] tracking-wider uppercase block mt-0.5">
-                          {item.archetype}
-                        </span>
                       </div>
 
                       <div className="flex items-center gap-2 shrink-0">
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0D0D0F] text-[#847F78] uppercase border border-[rgba(255,255,255,0.06)]">
-                          {item.category}
-                        </span>
                         {/* Mobile chevron indicator */}
                         <span className="lg:hidden text-[#C5A46D]">
                           {isSelected ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
@@ -69,14 +66,14 @@ export const Arsenal: React.FC = () => {
                   {isSelected && (
                     <div className="lg:hidden gothic-card p-5 rounded-2xl border-[#C5A46D]/35 bg-[#141519]/95 space-y-4 animate-in fade-in slide-in-from-top-2 duration-200 shadow-[0_10px_25px_rgba(0,0,0,0.6)]">
                       {/* Header */}
-                      <div className="border-b border-[rgba(255,255,255,0.08)] pb-3 flex items-center justify-between gap-2">
-                        <span className="font-mono text-xs tracking-widest uppercase text-[#C5A46D] font-semibold flex items-center gap-1.5">
+                      <div className="border-b border-[rgba(255,255,255,0.08)] pb-3">
+                        <span className="font-mono text-xs tracking-widest uppercase text-[#C5A46D] font-semibold flex items-center gap-1.5 mb-1">
                           <Sparkles className="w-3.5 h-3.5" />
                           {item.archetype}
                         </span>
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0D0D0F] text-[#B8B2A7] border border-[rgba(255,255,255,0.08)] uppercase">
-                          {item.category}
-                        </span>
+                        <h4 className="text-base font-bold text-[#EAE6DF]">
+                          {item.name}
+                        </h4>
                       </div>
 
                       {/* Mastery Description */}
@@ -126,15 +123,10 @@ export const Arsenal: React.FC = () => {
 
                 {/* Header */}
                 <div className="border-b border-[rgba(255,255,255,0.08)] pb-5">
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="font-mono text-xs tracking-widest uppercase text-[#C5A46D] font-semibold flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      {selectedWeapon.archetype}
-                    </span>
-                    <span className="text-xs font-mono px-2.5 py-0.5 rounded bg-[#0D0D0F] text-[#B8B2A7] border border-[rgba(255,255,255,0.08)] uppercase">
-                      {selectedWeapon.category}
-                    </span>
-                  </div>
+                  <span className="font-mono text-xs tracking-widest uppercase text-[#C5A46D] font-semibold flex items-center gap-1.5 mb-2">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    {selectedWeapon.archetype}
+                  </span>
 
                   <h3 className="text-2xl sm:text-3xl font-bold text-[#EAE6DF]">
                     {selectedWeapon.name}
