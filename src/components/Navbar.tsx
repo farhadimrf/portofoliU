@@ -49,11 +49,11 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         isScrolled
-          ? 'bg-[#0D0D0F]/90 backdrop-blur-lg border-b border-[rgba(255,255,255,0.055)] py-3 shadow-[0_4px_24px_rgba(0,0,0,0.8)]'
+          ? 'backdrop-blur-md bg-[#0A0A0C]/85 border-b border-white/[0.06] py-3.5 shadow-[0_4px_24px_rgba(0,0,0,0.85)]'
           : 'bg-transparent py-5'
       }`}
     >
-      <div className="max-w-5xl mx-auto px-6 md:px-12">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="flex items-center justify-between">
 
           {/* Logo */}
@@ -62,23 +62,23 @@ export const Navbar: React.FC = () => {
             onClick={(e) => { e.preventDefault(); handleNavClick('#hero'); }}
             className="group flex items-center gap-3 focus:outline-none"
           >
-            <div className="w-7 h-7 rounded bg-[#17181C] border border-[#C5A46D]/25 flex items-center justify-center group-hover:border-[#C5A46D]/50 transition-colors">
-              <span className="font-cinzel text-[10px] font-bold text-[#C5A46D] group-hover:text-[#dfbe88] transition-colors">
+            <div className="w-8 h-8 rounded-lg bg-[#17181C] border border-[#C5A46D]/30 flex items-center justify-center group-hover:border-[#C5A46D]/60 transition-colors shadow-[0_0_10px_rgba(197,164,109,0.1)]">
+              <span className="font-cinzel text-xs font-bold text-[#C5A46D] group-hover:text-[#dfbe88] transition-colors">
                 {PERSONAL_INFO.shortName}
               </span>
             </div>
             <div className="hidden sm:flex flex-col">
-              <span className="font-cinzel text-[11px] font-semibold tracking-[0.18em] text-[#E5E0D8]/80 group-hover:text-[#C5A46D] transition-colors">
+              <span className="font-cinzel text-xs font-bold tracking-[0.18em] text-[#EAE6DF] group-hover:text-[#C5A46D] transition-colors">
                 M. FARHADI
               </span>
-              <span className="text-[9px] font-mono text-[#5C5956] tracking-[0.18em] uppercase">
+              <span className="text-[10px] font-mono text-[#847F78] tracking-[0.18em] uppercase">
                 Software Engineer
               </span>
             </div>
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-0.5" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
             {NAV_LINKS.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
@@ -86,10 +86,10 @@ export const Navbar: React.FC = () => {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className={`px-3 py-1.5 rounded text-[11px] font-medium tracking-wide transition-all ${
+                  className={`px-3.5 py-2 rounded-lg text-sm font-medium tracking-wider transition-all duration-200 ${
                     isActive
-                      ? 'text-[#C5A46D] bg-[#17181C] border border-[#C5A46D]/25'
-                      : 'text-[#5C5956] hover:text-[#9A9490] hover:bg-[#17181C]/50'
+                      ? 'text-[#C5A46D] bg-[#17181C] border border-[#C5A46D]/30 shadow-[0_0_12px_rgba(197,164,109,0.12)]'
+                      : 'text-[#B8B2A7] hover:text-[#EAE6DF] hover:bg-[#17181C]/70'
                   }`}
                 >
                   {link.label}
@@ -99,61 +99,61 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Right area */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-3">
 
-            {/* Insight — very small, subtle */}
+            {/* Insight — subtle indicator */}
             <button
               onClick={() => setIsModalOpen(true)}
-              className="hidden sm:flex items-center gap-1.5 px-2 py-1 rounded text-[9px] font-mono text-[#5C5956] hover:text-[#9A9490] transition-colors cursor-pointer"
+              className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono text-[#847F78] hover:text-[#B8B2A7] hover:bg-[#17181C]/60 transition-colors cursor-pointer"
               title="Insight archives"
             >
-              <Eye className="w-3 h-3" />
+              <Eye className="w-3.5 h-3.5 text-[#C5A46D]/70" />
               <span>{String(insightCount).padStart(2,'0')}/{String(maxInsight).padStart(2,'0')}</span>
             </button>
 
-            {/* Resume */}
+            {/* Resume CTA */}
             <a
               href={PERSONAL_INFO.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-[rgba(255,255,255,0.08)] bg-[#17181C]/80 hover:border-[#C5A46D]/30 text-[#9A9490] hover:text-[#E5E0D8] text-[11px] font-cinzel tracking-wider transition-all"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[#C5A46D]/35 bg-[#17181C]/90 hover:bg-[#C5A46D] text-[#EAE6DF] hover:text-[#0A0A0C] text-sm font-medium tracking-wider transition-all duration-300 shadow-[0_0_15px_rgba(197,164,109,0.15)] group"
             >
-              <FileDown className="w-3 h-3 text-[#C5A46D]" />
+              <FileDown className="w-3.5 h-3.5 text-[#C5A46D] group-hover:text-[#0A0A0C] transition-colors" />
               <span>Resume</span>
             </a>
 
             {/* Mobile menu trigger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded bg-[#17181C] border border-[rgba(255,255,255,0.055)] text-[#9A9490] hover:border-[#C5A46D]/30 transition-colors"
+              className="lg:hidden p-2 rounded-lg bg-[#17181C] border border-[rgba(255,255,255,0.08)] text-[#B8B2A7] hover:border-[#C5A46D]/40 transition-colors"
               aria-label="Toggle navigation"
             >
-              {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5 text-[#EAE6DF]" />}
             </button>
           </div>
         </div>
 
         {/* Mobile drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-3 pt-4 border-t border-[rgba(255,255,255,0.055)] bg-[#0D0D0F]/95 backdrop-blur-xl rounded-b-2xl p-4 space-y-1 animate-in fade-in slide-in-from-top-3 duration-200">
+          <div className="lg:hidden mt-3 pt-4 border-t border-[rgba(255,255,255,0.08)] bg-[#0D0D0F]/95 backdrop-blur-xl rounded-b-2xl p-4 space-y-1 animate-in fade-in slide-in-from-top-3 duration-200">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                className="block px-4 py-2.5 rounded-lg text-sm text-[#9A9490] hover:text-[#E5E0D8] hover:bg-[#17181C] font-cinzel tracking-wide transition-colors"
+                className="block px-4 py-3 rounded-lg text-sm font-medium text-[#B8B2A7] hover:text-[#EAE6DF] hover:bg-[#17181C] tracking-wide transition-colors"
               >
                 {link.label}
               </a>
             ))}
-            <div className="pt-3 border-t border-[rgba(255,255,255,0.055)]">
+            <div className="pt-3 border-t border-[rgba(255,255,255,0.08)]">
               <a
                 href={PERSONAL_INFO.resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded border border-[rgba(255,255,255,0.08)] text-[#9A9490] text-xs font-cinzel tracking-wider"
+                className="inline-flex items-center justify-center w-full gap-2 px-4 py-3 rounded-lg border border-[#C5A46D]/40 bg-[#17181C] text-[#EAE6DF] text-sm font-medium tracking-wider"
               >
-                <FileDown className="w-3.5 h-3.5 text-[#C5A46D]" />
+                <FileDown className="w-4 h-4 text-[#C5A46D]" />
                 <span>Download Resume</span>
               </a>
             </div>

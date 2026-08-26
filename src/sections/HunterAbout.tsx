@@ -34,32 +34,32 @@ export const HunterAbout: React.FC = () => {
   }, []);
 
   return (
-    <section id="hunter" ref={sectionRef} className="py-28 md:py-40 relative z-10">
+    <section id="hunter" ref={sectionRef} className="py-20 md:py-28 relative z-10">
       <div className="max-w-5xl mx-auto px-6 md:px-12">
         <SectionHeading
           number="02"
-          category="The Hunter"
+          category="Engineering Evolution"
           headline="EVERY ENGINEER HAS A PATH."
           subheadline="From native device memory constraints to nation-scale enterprise architectures — technical mastery is forged through real production complexity."
         />
 
         {/* High-level progression breadcrumb — clean, scannable */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12 sm:mb-16 text-[10px] sm:text-xs font-mono text-[#5C5956] tracking-[0.18em] uppercase">
-          <span className="text-[#9A9490]">Android</span>
-          <span className="text-[#C5A46D]/60">→</span>
-          <span className="text-[#9A9490]">React</span>
-          <span className="text-[#C5A46D]/60">→</span>
-          <span className="text-[#9A9490]">Modern Web</span>
-          <span className="text-[#C5A46D]/60">→</span>
-          <span className="text-[#9A9490]">Architecture</span>
-          <span className="text-[#C5A46D]/60">→</span>
-          <span className="text-[#C5A46D] font-semibold">Software Engineering</span>
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 sm:mb-14 text-xs sm:text-sm font-mono tracking-wider uppercase">
+          <span className="text-[#B8B2A7]">Android</span>
+          <span className="text-[#C5A46D]">→</span>
+          <span className="text-[#B8B2A7]">React</span>
+          <span className="text-[#C5A46D]">→</span>
+          <span className="text-[#B8B2A7]">Modern Web</span>
+          <span className="text-[#C5A46D]">→</span>
+          <span className="text-[#B8B2A7]">Architecture</span>
+          <span className="text-[#C5A46D]">→</span>
+          <span className="text-[#C5A46D] font-bold">Software Engineering</span>
         </div>
 
         {/* Vertical timeline — clean, scannable */}
-        <div ref={timelineRef} className="max-w-2xl mx-auto relative">
+        <div ref={timelineRef} className="max-w-3xl mx-auto relative">
           {/* Vertical spine */}
-          <div className="absolute left-[17px] top-3 bottom-3 w-[1px] bg-gradient-to-b from-transparent via-[#C5A46D]/25 to-transparent" />
+          <div className="absolute left-[19px] top-3 bottom-3 w-[2px] bg-gradient-to-b from-transparent via-[#C5A46D]/35 to-transparent" />
 
           <div className="space-y-0">
             {CAREER_EVOLUTION_STEPS.map((step, idx) => {
@@ -70,32 +70,35 @@ export const HunterAbout: React.FC = () => {
                 <div key={step.phase} className={`timeline-item relative flex gap-6 ${isLast ? '' : 'pb-10'}`}>
                   {/* Node */}
                   <div className="relative z-10 flex-shrink-0">
-                    <div className="w-9 h-9 rounded-full bg-[#17181C] border border-[#C5A46D]/40 flex items-center justify-center text-[#C5A46D] shadow-[0_0_14px_rgba(197,164,109,0.15)]">
-                      <IconComponent className="w-4 h-4" />
+                    <div className="w-10 h-10 rounded-full bg-[#17181C] border border-[#C5A46D]/50 flex items-center justify-center text-[#C5A46D] shadow-[0_0_16px_rgba(197,164,109,0.2)]">
+                      <IconComponent className="w-4.5 h-4.5" />
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="pb-1 pt-0.5 flex-1">
-                    {/* LEVEL 3: Period — monospace, muted */}
-                    <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-[#5C5956]">
-                      {step.period}
-                    </span>
+                    {/* Period Badge */}
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="font-mono text-xs tracking-wider uppercase text-[#C5A46D] font-semibold">
+                        {step.period}
+                      </span>
+                      <span className="text-xs font-mono text-[#847F78]">· {step.era}</span>
+                    </div>
 
-                    {/* LEVEL 1: Title — serif */}
-                    <h3 className="font-cinzel text-lg sm:text-xl font-bold text-[#E5E0D8] mt-0.5 mb-2 leading-snug">
+                    {/* Title */}
+                    <h3 className="font-cinzel text-lg sm:text-xl font-bold text-[#EAE6DF] mb-2 leading-snug">
                       {step.title}
                     </h3>
 
-                    {/* LEVEL 2: Description — sans-serif, readable */}
-                    <p className="text-sm text-[#9A9490] leading-relaxed max-w-lg">
+                    {/* Description */}
+                    <p className="text-sm sm:text-base text-[#B8B2A7] leading-relaxed max-w-xl">
                       {step.description}
                     </p>
 
-                    {/* Key takeaway — slightly more visible than period, still quiet */}
-                    <div className="mt-3 flex items-start gap-2">
-                      <span className="font-mono text-[10px] text-[#C5A46D]/60 mt-0.5 shrink-0">→</span>
-                      <span className="font-mono text-[10px] text-[#5C5956] leading-relaxed">{step.keyTakeaway}</span>
+                    {/* Key takeaway */}
+                    <div className="mt-3.5 flex items-start gap-2.5 p-3 rounded-xl bg-[#141519]/80 border border-[rgba(255,255,255,0.06)] max-w-xl">
+                      <span className="font-mono text-xs text-[#C5A46D] mt-0.5 shrink-0 font-bold">→</span>
+                      <span className="text-xs sm:text-sm text-[#EAE6DF] font-medium leading-relaxed">{step.keyTakeaway}</span>
                     </div>
                   </div>
                 </div>

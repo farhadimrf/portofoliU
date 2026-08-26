@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import { SectionHeading } from '../components/SectionHeading';
 import { ARSENAL } from '../data/portfolioData';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Sparkles, Wrench } from 'lucide-react';
 import type { ArsenalItem } from '../types';
 
 export const Arsenal: React.FC = () => {
   const [selectedWeapon, setSelectedWeapon] = useState<ArsenalItem>(ARSENAL[0]);
 
   return (
-    <section id="arsenal" className="py-28 md:py-40 relative z-10">
-      <div className="max-w-5xl mx-auto px-6 md:px-12">
+    <section id="arsenal" className="py-20 md:py-28 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 md:px-12">
         <SectionHeading
           number="07"
-          category="Hunter's Arsenal"
-          headline="THE HUNTER'S ARSENAL"
+          category="Technical Skills & Proficiencies"
+          headline="HUNTER'S ARSENAL"
           subheadline="Mastery lies in deep familiarity with runtime mechanics, compiler behavior, and architectural trade-offs — not in arbitrary percentages."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           {/* Left: Technology selector */}
-          <div className="lg:col-span-5 space-y-2">
+          <div className="lg:col-span-5 space-y-2.5">
             {ARSENAL.map((item) => {
               const isSelected = selectedWeapon.id === item.id;
 
@@ -27,28 +27,29 @@ export const Arsenal: React.FC = () => {
                 <button
                   key={item.id}
                   onClick={() => setSelectedWeapon(item)}
-                  className={`w-full text-left p-4 rounded-xl border transition-all duration-300 relative group cursor-pointer ${
+                  className={`w-full text-left p-4 sm:p-4.5 rounded-xl border transition-all duration-300 relative group cursor-pointer ${
                     isSelected
-                      ? 'bg-[#1C1D24] border-[#C5A46D]/40 shadow-[0_10px_28px_rgba(0,0,0,0.7)]'
-                      : 'bg-[#17181C]/80 border-[rgba(255,255,255,0.055)] hover:border-[#C5A46D]/25 hover:bg-[#1A1B20]'
+                      ? 'bg-[#1C1D24] border-[#C5A46D]/45 shadow-[0_10px_28px_rgba(0,0,0,0.7)]'
+                      : 'bg-[#17181C]/90 border-[rgba(255,255,255,0.06)] hover:border-[#C5A46D]/30 hover:bg-[#1A1B20]'
                   }`}
                 >
                   {isSelected && (
-                    <div className="absolute left-0 top-3 bottom-3 w-0.5 bg-[#C5A46D] rounded-r shadow-[0_0_6px_#C5A46D]" />
+                    <div className="absolute left-0 top-3 bottom-3 w-1 bg-[#C5A46D] rounded-r shadow-[0_0_8px_#C5A46D]" />
                   )}
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between gap-3">
                     <div>
-                      {/* LEVEL 3: Weapon archetype — monospace, very muted */}
-                      <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-[#5C5956] block mb-0.5">
-                        {item.archetype}
-                      </span>
-                      {/* LEVEL 2: Tech name — primary, readable */}
-                      <h3 className="text-base font-semibold text-[#E5E0D8] group-hover:text-[#C5A46D] transition-colors">
+                      {/* LEVEL 2 (PRIMARY): Real Technology Name — Bold & Prominent */}
+                      <h3 className="text-base sm:text-lg font-bold text-[#EAE6DF] group-hover:text-[#C5A46D] transition-colors leading-snug">
                         {item.name}
                       </h3>
+                      {/* LEVEL 3 (SUBTLE): Metaphor badge */}
+                      <span className="font-mono text-[11px] text-[#847F78] group-hover:text-[#B8B2A7] tracking-wider uppercase block mt-0.5">
+                        {item.archetype}
+                      </span>
                     </div>
-                    <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#0D0D0F] text-[#5C5956] uppercase border border-[rgba(255,255,255,0.055)]">
+
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#0D0D0F] text-[#847F78] uppercase border border-[rgba(255,255,255,0.06)] shrink-0">
                       {item.category}
                     </span>
                   </div>
@@ -59,51 +60,57 @@ export const Arsenal: React.FC = () => {
 
           {/* Right: Technology deep dive */}
           <div className="lg:col-span-7">
-            <div className="gothic-card p-6 sm:p-8 rounded-2xl border-[#C5A46D]/25 h-full flex flex-col justify-between relative overflow-hidden">
-              <div className="space-y-5">
+            <div className="gothic-card p-6 sm:p-8 rounded-2xl border-[#C5A46D]/30 h-full flex flex-col justify-between relative overflow-hidden bg-[#141519]/90">
+              <div className="space-y-6">
 
                 {/* Header */}
-                <div className="border-b border-[rgba(255,255,255,0.055)] pb-4">
-                  {/* LEVEL 3: Archetype — tiny, muted */}
-                  <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-[#5C5956] block mb-1.5">
-                    {selectedWeapon.archetype}
-                  </span>
-                  {/* LEVEL 2: Tech name — large, sans-serif */}
-                  <h3 className="text-2xl sm:text-3xl font-bold text-[#E5E0D8]">
+                <div className="border-b border-[rgba(255,255,255,0.08)] pb-5">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="font-mono text-xs tracking-widest uppercase text-[#C5A46D] font-semibold flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5" />
+                      {selectedWeapon.archetype}
+                    </span>
+                    <span className="text-xs font-mono px-2.5 py-0.5 rounded bg-[#0D0D0F] text-[#B8B2A7] border border-[rgba(255,255,255,0.08)] uppercase">
+                      {selectedWeapon.category}
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#EAE6DF]">
                     {selectedWeapon.name}
                   </h3>
                 </div>
 
-                {/* Description */}
-                <p className="text-sm sm:text-base text-[#9A9490] leading-relaxed">
+                {/* Mastery Description */}
+                <p className="text-sm sm:text-base text-[#B8B2A7] leading-relaxed">
                   {selectedWeapon.masteryDescription}
                 </p>
 
-                {/* Capabilities */}
-                <div className="space-y-2.5">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#5C5956] block">
-                    Core Capabilities
+                {/* Core Capabilities */}
+                <div className="space-y-3">
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#EAE6DF] font-semibold flex items-center gap-1.5">
+                    <Wrench className="w-3.5 h-3.5 text-[#C5A46D]" />
+                    Core Architectural Capabilities
                   </span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {selectedWeapon.keyStrengths.map((strength, idx) => (
                       <div
                         key={idx}
-                        className="flex items-center gap-2 p-2.5 rounded-lg bg-[#0D0D0F]/80 border border-[rgba(255,255,255,0.055)] text-xs text-[#9A9490]"
+                        className="flex items-start gap-2.5 p-3 rounded-xl bg-[#0D0D0F]/90 border border-[rgba(255,255,255,0.06)] text-xs sm:text-sm text-[#EAE6DF]"
                       >
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#C5A46D]/50 shrink-0" />
-                        <span>{strength}</span>
+                        <CheckCircle2 className="w-4 h-4 text-[#C5A46D] shrink-0 mt-0.5" />
+                        <span className="leading-snug">{strength}</span>
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
 
-              {/* Production role */}
-              <div className="pt-5 mt-5 border-t border-[rgba(255,255,255,0.055)]">
-                <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-[#5C5956] block mb-1.5">
-                  Production Use
+              {/* Production Use */}
+              <div className="pt-5 mt-6 border-t border-[rgba(255,255,255,0.08)]">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#847F78] block mb-1 font-semibold">
+                  Production Application
                 </span>
-                <p className="text-sm text-[#C5A46D]/80 leading-relaxed">
+                <p className="text-sm sm:text-base text-[#C5A46D] font-medium leading-relaxed">
                   {selectedWeapon.productionUse}
                 </p>
               </div>

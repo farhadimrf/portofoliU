@@ -43,10 +43,10 @@ export const InsightModal: React.FC = () => {
         </div>
 
         {/* Introduction note */}
-        <div className="bg-[#0D0D10]/80 border border-[#22232B] rounded-xl p-4 mb-6 text-xs sm:text-sm text-[#9E988F] leading-relaxed flex items-start gap-3">
+        <div className="bg-[#0D0D10]/90 border border-[rgba(255,255,255,0.08)] rounded-2xl p-4 mb-6 text-sm text-[#B8B2A7] leading-relaxed flex items-start gap-3">
           <ShieldAlert className="w-5 h-5 text-[#C5A46D] shrink-0 mt-0.5" />
           <p>
-            In the nightmare of complex legacy architectures, <strong className="text-[#E8E3D9]">Insight</strong> represents hard-won engineering clarity. These axioms distill lessons forged during high-concurrency production deployments and zero-downtime migrations.
+            In the complexity of enterprise systems, <strong className="text-[#EAE6DF]">Insight</strong> represents hard-won architectural clarity. These axioms distill lessons forged during high-concurrency production deployments and zero-downtime migrations.
           </p>
         </div>
 
@@ -57,38 +57,38 @@ export const InsightModal: React.FC = () => {
             return (
               <div
                 key={item.id}
-                className={`p-4 sm:p-5 rounded-xl border transition-all duration-300 ${
+                className={`p-5 sm:p-6 rounded-2xl border transition-all duration-300 ${
                   isUnlocked
-                    ? 'bg-[#1C1D24]/90 border-[#C5A46D]/40 shadow-[0_4px_20px_rgba(0,0,0,0.5)]'
+                    ? 'bg-[#1C1D24]/95 border-[#C5A46D]/45 shadow-[0_4px_20px_rgba(0,0,0,0.5)]'
                     : 'bg-[#101114]/60 border-white/[0.05] opacity-50'
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-mono text-xs text-[#C5A46D] uppercase tracking-wider font-semibold">
-                    AXIOM 0{item.id} // {item.title}
+                  <span className="font-mono text-xs text-[#C5A46D] uppercase tracking-wider font-bold">
+                    AXIOM 0{item.id} · {item.title}
                   </span>
                   {isUnlocked ? (
-                    <span className="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 bg-emerald-950/60 px-2.5 py-0.5 rounded border border-emerald-800/40">
-                      <CheckCircle2 className="w-3 h-3" /> Unlocked
+                    <span className="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-400 bg-emerald-950/80 px-2.5 py-0.5 rounded-md border border-emerald-700/50 font-semibold">
+                      <CheckCircle2 className="w-3.5 h-3.5" /> Unlocked
                     </span>
                   ) : (
-                    <span className="inline-flex items-center gap-1 text-[11px] font-mono text-[#5E5B54]">
-                      <Lock className="w-3 h-3" /> Scroll further to awaken
+                    <span className="inline-flex items-center gap-1 text-xs font-mono text-[#847F78]">
+                      <Lock className="w-3.5 h-3.5" /> Explore further to awaken
                     </span>
                   )}
                 </div>
 
                 {isUnlocked ? (
                   <>
-                    <p className="font-cinzel text-sm sm:text-base font-semibold text-[#E8E3D9] mb-2 italic">
+                    <p className="font-cinzel text-base sm:text-lg font-bold text-[#EAE6DF] mb-2 italic">
                       "{item.quote}"
                     </p>
-                    <p className="text-xs sm:text-sm text-[#9E988F] leading-relaxed">
+                    <p className="text-sm sm:text-base text-[#B8B2A7] leading-relaxed">
                       {item.elaboration}
                     </p>
                   </>
                 ) : (
-                  <p className="font-mono text-xs text-[#5E5B54] italic">
+                  <p className="font-mono text-xs text-[#847F78] italic">
                     [Explore sections of the portfolio to discover this architectural principle]
                   </p>
                 )}

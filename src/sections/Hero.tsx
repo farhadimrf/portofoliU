@@ -129,11 +129,11 @@ export const Hero: React.FC = () => {
       {/* Centered content */}
       <div className="max-w-5xl mx-auto px-6 md:px-12 w-full flex-1 flex flex-col items-center justify-center text-center my-auto z-10">
 
-        {/* LEVEL 3: Availability badge — small, muted */}
+        {/* LEVEL 3: Availability badge — clean, legible */}
         <div ref={markRef} className="flex flex-col items-center gap-2 mb-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#17181C]/90 border border-[#C5A46D]/20 text-[10px] font-mono text-[#5C5956] shadow-[0_0_20px_rgba(0,0,0,0.5)] backdrop-blur-md">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-            <span className="text-[#9A9490] tracking-[0.2em] uppercase">Available for hire</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#17181C]/90 border border-[#C5A46D]/30 text-xs font-mono text-[#B8B2A7] shadow-[0_0_20px_rgba(0,0,0,0.5)] backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="tracking-[0.18em] uppercase font-semibold">Available for hire</span>
           </div>
         </div>
 
@@ -143,12 +143,12 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Identity block — clear visual hierarchy */}
-        <div className="max-w-2xl mx-auto mt-4 space-y-2.5">
+        <div className="max-w-2xl mx-auto mt-4 space-y-3">
 
-          {/* LEVEL 1 (name): Reduced by ~30% for balanced hierarchy */}
+          {/* LEVEL 1 (name): Clean serif */}
           <h2
             ref={nameRef}
-            className="font-cinzel text-lg sm:text-xl md:text-2xl font-semibold tracking-[0.18em] text-[#E5E0D8]/80 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]"
+            className="font-cinzel text-lg sm:text-xl md:text-2xl font-semibold tracking-[0.18em] text-[#EAE6DF]/90 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]"
           >
             {PERSONAL_INFO.name.toUpperCase()}
           </h2>
@@ -158,17 +158,17 @@ export const Hero: React.FC = () => {
             ref={titleRef}
             className="flex items-center justify-center gap-3 sm:gap-5 mt-1"
           >
-            <div className="w-8 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A46D]/60" />
-            <h1 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold text-[#C5A46D] tracking-widest uppercase drop-shadow-[0_0_20px_rgba(197,164,109,0.25)]">
+            <div className="w-8 sm:w-16 h-[1px] bg-gradient-to-r from-transparent to-[#C5A46D]/70" />
+            <h1 className="font-cinzel text-2xl sm:text-3xl md:text-4xl font-bold text-[#C5A46D] tracking-widest uppercase drop-shadow-[0_0_20px_rgba(197,164,109,0.3)]">
               {PERSONAL_INFO.title}
             </h1>
-            <div className="w-8 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A46D]/60" />
+            <div className="w-8 sm:w-16 h-[1px] bg-gradient-to-l from-transparent to-[#C5A46D]/70" />
           </div>
 
           {/* LEVEL 3 / 2 bridge: Specialization — clean, scannable */}
           <div
             ref={specRef}
-            className="font-mono text-xs sm:text-sm tracking-[0.25em] text-[#9A9490] uppercase mt-1 font-medium"
+            className="font-mono text-xs sm:text-sm tracking-[0.25em] text-[#B8B2A7] uppercase mt-1 font-semibold"
           >
             {PERSONAL_INFO.specialization}
           </div>
@@ -176,7 +176,7 @@ export const Hero: React.FC = () => {
           {/* LEVEL 2: Professional Statement — highly readable, comfortable line length */}
           <p
             ref={descRef}
-            className="pt-4 text-base sm:text-lg text-[#E5E0D8]/90 font-normal max-w-lg mx-auto leading-relaxed"
+            className="pt-4 text-base sm:text-lg md:text-xl text-[#EAE6DF] font-normal max-w-xl mx-auto leading-relaxed"
           >
             "{PERSONAL_INFO.tagline}"
           </p>

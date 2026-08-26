@@ -28,34 +28,34 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
 
   return (
     <div
-      className={`mb-14 sm:mb-20 ${isCenter ? 'text-center mx-auto' : 'text-left'} max-w-3xl ${className}`}
+      className={`mb-10 sm:mb-14 ${isCenter ? 'text-center mx-auto' : 'text-left'} max-w-3xl ${className}`}
     >
       {/* LEVEL 3: Atmospheric label — small, muted, monospace */}
-      <div className={`flex items-center gap-2 mb-5 ${isCenter ? 'justify-center' : 'justify-start'}`}>
-        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[#5C5956]">
+      <div className={`flex items-center gap-2 mb-4 ${isCenter ? 'justify-center' : 'justify-start'}`}>
+        <span className="font-mono text-xs uppercase tracking-[0.25em] text-[#C5A46D] font-semibold">
           {number}
         </span>
-        <span className="w-4 h-[1px] bg-[#5C5956]/50" />
-        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#5C5956]">
+        <span className="w-4 h-[1px] bg-[#C5A46D]/40" />
+        <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#847F78] font-semibold">
           {category}
         </span>
       </div>
 
       {/* LEVEL 1: Cinematic headline — serif, large, strong */}
-      <h2 className="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#E5E0D8] leading-tight">
+      <h2 className="font-cinzel text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[#EAE6DF] leading-tight drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]">
         {headline}
       </h2>
 
       {/* Slim gold ornamental divider — single, subtle */}
-      <div className={`flex items-center gap-3 my-5 ${isCenter ? 'justify-center' : 'justify-start'}`}>
+      <div className={`flex items-center gap-3 my-4 ${isCenter ? 'justify-center' : 'justify-start'}`}>
         <div className="w-8 h-[1px] bg-[#C5A46D]/50" />
-        <div className="w-1 h-1 rotate-45 bg-[#8C2F39]/80" />
+        <div className="w-1.5 h-1.5 rotate-45 bg-[#8C2F39]" />
         <div className="w-8 h-[1px] bg-[#C5A46D]/50" />
       </div>
 
-      {/* LEVEL 2: Readable subheadline — sans-serif, normal weight, constrained width */}
+      {/* LEVEL 2: Readable subheadline — high contrast, comfortable line height */}
       {subheadline && (
-        <p className="text-sm sm:text-base text-[#9A9490] leading-relaxed font-normal max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-[#B8B2A7] leading-relaxed font-normal max-w-2xl mx-auto">
           {subheadline}
         </p>
       )}
