@@ -1,238 +1,132 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SectionHeading } from '../components/SectionHeading';
-import { AlertTriangle, Zap, CheckCircle, Flame } from 'lucide-react';
+import { AlertTriangle, CheckCircle, ArrowDown } from 'lucide-react';
+
+const LEGACY_ITEMS = [
+  { label: 'MeteorJS Runtime', note: 'Blocking DDP subscriptions, monolithic coupling' },
+  { label: 'React Class Components', note: 'Lifecycle chaos, memory leaks, prop-drilling' },
+  { label: 'Untyped JavaScript', note: 'Runtime crashes, undefined is not a function' },
+  { label: 'Monolithic Bundles', note: '4s+ initial load on low-spec POS hardware' },
+];
+
+const MODERN_ITEMS = [
+  { label: 'React 19 + Functional Hooks', note: 'Clean data flow, isolated side effects, concurrent rendering' },
+  { label: 'Strict TypeScript', note: '100% compile-time safety, discriminated unions, auto-generated API types' },
+  { label: 'Vite + Modern Build', note: 'Sub-second HMR, Rollup tree-shaking, lightweight chunk splitting' },
+  { label: 'TanStack Query', note: 'Resilient cache, background revalidation, optimistic UI' },
+];
 
 export const OldSystems: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'comparison' | 'interactive'>('comparison');
-  const [sliderPosition, setSliderPosition] = useState<number>(50);
-
-  const LEGACY_POINTS = [
-    {
-      title: 'Monolithic MeteorJS Runtime',
-      problem: 'Tight server-client coupling, blocking DDP socket bottlenecks, and lack of modular bundling.',
-    },
-    {
-      title: 'React Class Components & Lifecycle Chaos',
-      problem: 'Complex `componentWillReceiveProps` chains, memory leaks in unmounted listeners, and prop-drilling.',
-    },
-    {
-      title: 'Unchecked JavaScript Runtime Bugs',
-      problem: 'Frequent `undefined is not a function` production crashes and untyped payload parsing.',
-    },
-    {
-      title: 'Bloated Bundles & Slow Cold Starts',
-      problem: 'Massive monolithic bundle files causing 4s+ initial load times on mobile and POS hardware.',
-    },
-  ];
-
-  const MODERN_POINTS = [
-    {
-      title: 'Modular React 19 & Functional Hooks',
-      solution: 'Clean unidirectional data flow, custom reusable hooks, concurrent rendering, and isolated side effects.',
-    },
-    {
-      title: 'Strict TypeScript Type Contracts',
-      solution: '100% compile-time safety, strict null checks, discriminated unions, and auto-generated API types.',
-    },
-    {
-      title: 'Vite & Modern Build Ecosystem',
-      solution: 'Sub-second HMR development, automated Rollup tree-shaking, and lightweight chunk splitting.',
-    },
-    {
-      title: 'Resilient Cache & Optimistic UI',
-      solution: 'TanStack Query with offline caching, background revalidation, and instant optimistic updates.',
-    },
-  ];
-
   return (
-    <section id="old-systems" className="py-24 md:py-36 relative z-10">
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+    <section id="old-systems" className="py-28 md:py-40 relative z-10">
+      <div className="max-w-5xl mx-auto px-6 md:px-12">
         <SectionHeading
           number="03"
-          category="THE OLD SYSTEMS // THE ARCHAEOLOGY OF DEBT"
-          headline="Every system has a history."
-          subheadline="Modernization is not about destroying the past, but transforming legacy chaos into disciplined, high-performance architecture."
+          category="The Old Systems"
+          headline="THE TRANSFORMATION OF OLD SYSTEMS"
+          subheadline="Modernization is not about destroying the past — it is about transforming legacy complexity into disciplined, high-performance architecture."
         />
 
-        {/* Tab Selector */}
-        <div className="flex justify-center mb-10">
-          <div className="inline-flex p-1 rounded-xl bg-[#141519] border border-white/[0.06]">
-            <button
-              onClick={() => setActiveTab('comparison')}
-              className={`px-5 py-2 rounded-lg font-cinzel text-xs uppercase tracking-wider transition-all cursor-pointer ${
-                activeTab === 'comparison'
-                  ? 'bg-[#C5A46D] text-[#0A0A0C] font-bold shadow-[0_0_15px_rgba(197,164,109,0.35)]'
-                  : 'text-[#9E988F] hover:text-[#E8E3D9]'
-              }`}
-            >
-              Side-by-Side Analysis
-            </button>
-            <button
-              onClick={() => setActiveTab('interactive')}
-              className={`px-5 py-2 rounded-lg font-cinzel text-xs uppercase tracking-wider transition-all cursor-pointer ${
-                activeTab === 'interactive'
-                  ? 'bg-[#C5A46D] text-[#0A0A0C] font-bold shadow-[0_0_15px_rgba(197,164,109,0.35)]'
-                  : 'text-[#9E988F] hover:text-[#E8E3D9]'
-              }`}
-            >
-              Metamorphosis Slider
-            </button>
-          </div>
-        </div>
+        {/* Transformation view */}
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 items-start">
 
-        {activeTab === 'comparison' ? (
-          /* Side by Side Architectural Comparison Grid */
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* The Old World / Legacy */}
-            <div className="gothic-card p-6 sm:p-8 rounded-2xl border-[#8C2F39]/40 bg-gradient-to-b from-[#141519] via-[#141215] to-[#120F12] relative overflow-hidden">
-              <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#8C2F39]/30">
-                <div className="flex items-center gap-2 text-[#8C2F39]">
-                  <Flame className="w-5 h-5" />
-                  <span className="font-mono text-xs uppercase tracking-widest font-bold">LEGACY ANOMALIES</span>
-                </div>
-                <span className="text-xs font-mono px-2.5 py-1 rounded bg-[#8C2F39]/20 text-[#E8E3D9] border border-[#8C2F39]/40">
-                  MeteorJS · Class Components
+            {/* Legacy column */}
+            <div className="gothic-card p-6 rounded-2xl border-[#8C2F39]/25">
+              <div className="flex items-center gap-2 mb-5 pb-4 border-b border-[#8C2F39]/20">
+                <AlertTriangle className="w-4 h-4 text-[#8C2F39]/70" />
+                {/* LEVEL 3: Label */}
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#8C2F39]/60">
+                  Legacy
                 </span>
               </div>
-
-              <div className="space-y-4">
-                {LEGACY_POINTS.map((item, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-[#0D0D10]/80 border border-[#2A1D22] space-y-1">
-                    <div className="flex items-center gap-2 text-[#E8E3D9] font-cinzel text-sm font-semibold">
-                      <AlertTriangle className="w-4 h-4 text-[#8C2F39] shrink-0" />
-                      <span>{item.title}</span>
-                    </div>
-                    <p className="text-xs text-[#9E988F] leading-relaxed pl-6">
-                      {item.problem}
-                    </p>
+              <div className="space-y-3">
+                {LEGACY_ITEMS.map((item, idx) => (
+                  <div key={idx} className="space-y-0.5">
+                    {/* LEVEL 2: Item name */}
+                    <div className="text-sm font-medium text-[#E5E0D8]/80">{item.label}</div>
+                    <div className="text-xs text-[#5C5956] leading-relaxed">{item.note}</div>
                   </div>
                 ))}
               </div>
-
-              <div className="mt-6 pt-4 border-t border-[#8C2F39]/20 flex items-center justify-between text-xs font-mono text-[#9E988F]">
-                <span>State: High Fragility</span>
-                <span className="text-[#8C2F39] font-bold">Requires Refactoring</span>
-              </div>
             </div>
 
-            {/* The New World / Modern */}
-            <div className="gothic-card p-6 sm:p-8 rounded-2xl border-[#C5A46D]/40 bg-gradient-to-b from-[#141519] via-[#14171A] to-[#111417] relative overflow-hidden">
-              <div className="flex items-center justify-between pb-4 mb-6 border-b border-[#C5A46D]/30">
-                <div className="flex items-center gap-2 text-[#C5A46D]">
-                  <Zap className="w-5 h-5" />
-                  <span className="font-mono text-xs uppercase tracking-widest font-bold">MODERN ARCHITECTURE</span>
-                </div>
-                <span className="text-xs font-mono px-2.5 py-1 rounded bg-[#C5A46D]/20 text-[#E8E3D9] border border-[#C5A46D]/40">
-                  React 19 · TypeScript · Vite
-                </span>
+            {/* Transition arrow */}
+            <div className="flex flex-col items-center justify-center gap-2 py-6 lg:py-0 lg:pt-16">
+              <div className="w-8 h-8 rounded-full bg-[#17181C] border border-[#C5A46D]/30 flex items-center justify-center text-[#C5A46D]/60">
+                <ArrowDown className="w-4 h-4 lg:rotate-[-90deg]" />
               </div>
-
-              <div className="space-y-4">
-                {MODERN_POINTS.map((item, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-[#0D0D10]/80 border border-[#252C28] space-y-1">
-                    <div className="flex items-center gap-2 text-[#E8E3D9] font-cinzel text-sm font-semibold">
-                      <CheckCircle className="w-4 h-4 text-[#C5A46D] shrink-0" />
-                      <span>{item.title}</span>
-                    </div>
-                    <p className="text-xs text-[#9E988F] leading-relaxed pl-6">
-                      {item.solution}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-[#C5A46D]/20 flex items-center justify-between text-xs font-mono text-[#9E988F]">
-                <span>State: Scalable & Tested</span>
-                <span className="text-[#C5A46D] font-bold">Production Ready</span>
-              </div>
-            </div>
-          </div>
-        ) : (
-          /* Interactive Metamorphosis Comparison Slider */
-          <div className="max-w-4xl mx-auto gothic-card p-6 sm:p-10 rounded-2xl border-[#C5A46D]/30">
-            <div className="text-center mb-6 space-y-2">
-              <span className="text-xs font-mono text-[#C5A46D] uppercase tracking-widest">
-                Interactive Codebase Refactoring Inspection
+              <span className="font-mono text-[9px] text-[#5C5956] tracking-[0.2em] uppercase hidden lg:block rotate-0">
+                Modernized
               </span>
-              <h3 className="font-cinzel text-xl sm:text-2xl font-bold text-[#E8E3D9]">
-                Slide to Witness Code Metamorphosis
-              </h3>
-              <p className="text-xs sm:text-sm text-[#9E988F] max-w-lg mx-auto">
-                Drag the threshold slider to witness how legacy imperative JavaScript transforms into clean declarative TypeScript with custom hooks.
-              </p>
             </div>
 
-            {/* Slider control */}
-            <div className="mb-8 px-4">
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value={sliderPosition}
-                onChange={(e) => setSliderPosition(Number(e.target.value))}
-                className="w-full h-2 bg-[#0D0D10] rounded-lg appearance-none cursor-pointer accent-[#C5A46D]"
-                aria-label="Codebase metamorphosis slider"
-              />
-              <div className="flex justify-between text-xs font-mono text-[#9E988F] mt-2">
-                <span className={sliderPosition < 50 ? 'text-[#8C2F39] font-bold' : ''}>
-                  0% Legacy Monolith
-                </span>
-                <span className="text-[#C5A46D] font-bold">{sliderPosition}% Modernized</span>
-                <span className={sliderPosition > 50 ? 'text-[#C5A46D] font-bold' : ''}>
-                  100% Target Architecture
+            {/* Modern column */}
+            <div className="gothic-card p-6 rounded-2xl border-[#C5A46D]/25">
+              <div className="flex items-center gap-2 mb-5 pb-4 border-b border-[#C5A46D]/20">
+                <CheckCircle className="w-4 h-4 text-[#C5A46D]/70" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#C5A46D]/60">
+                  Modern
                 </span>
               </div>
+              <div className="space-y-3">
+                {MODERN_ITEMS.map((item, idx) => (
+                  <div key={idx} className="space-y-0.5">
+                    <div className="text-sm font-medium text-[#E5E0D8]">{item.label}</div>
+                    <div className="text-xs text-[#9A9490] leading-relaxed">{item.note}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Code metamorphosis — kept as useful technical illustration */}
+          <div className="mt-10 gothic-card p-6 sm:p-8 rounded-2xl border-[#C5A46D]/20">
+            <div className="mb-5">
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#5C5956]">
+                Code Transformation
+              </span>
+              <h3 className="text-lg font-semibold text-[#E5E0D8] mt-1">
+                From class-based to functional architecture
+              </h3>
             </div>
 
-            {/* Code Transformation Block */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Legacy Code Box */}
-              <div
-                className={`p-5 rounded-xl border transition-all duration-300 ${
-                  sliderPosition < 60
-                    ? 'bg-[#181215] border-[#8C2F39]/60 shadow-[0_0_20px_rgba(140,47,57,0.2)]'
-                    : 'bg-[#0D0D10]/50 border-white/[0.05] opacity-40'
-                }`}
-              >
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#8C2F39]/30">
-                  <span className="text-xs font-mono text-[#8C2F39] font-bold uppercase">
-                    Legacy Class Component (2018)
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Legacy code */}
+              <div className="p-4 rounded-xl bg-[#0D0D0F]/90 border border-[#8C2F39]/25">
+                <div className="flex items-center justify-between pb-2 mb-3 border-b border-[#8C2F39]/20">
+                  <span className="font-mono text-[9px] text-[#8C2F39]/70 uppercase tracking-[0.2em]">
+                    Legacy · 2018
                   </span>
-                  <span className="text-[10px] font-mono text-[#9E988F]">Unchecked Types</span>
+                  <span className="text-[9px] font-mono text-[#5C5956]">Untyped</span>
                 </div>
-                <pre className="font-mono text-xs text-[#9E988F] overflow-x-auto leading-relaxed">
+                <pre className="font-mono text-xs text-[#5C5956] overflow-x-auto leading-relaxed">
 {`class PosTerminal extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.user !== this.props.user) {
-      Meteor.call('syncPosTransactions', {
+      Meteor.call('syncPos', {
         id: nextProps.user.id
       }, (err, res) => {
         if (!err) this.setState({ data: res });
       });
     }
   }
-  // Potential memory leaks & null derefs
+  // Memory leaks & null derefs
 }`}
                 </pre>
               </div>
 
-              {/* Modern Code Box */}
-              <div
-                className={`p-5 rounded-xl border transition-all duration-300 ${
-                  sliderPosition >= 40
-                    ? 'bg-[#141A17] border-[#C5A46D]/60 shadow-[0_0_20px_rgba(197,164,109,0.2)]'
-                    : 'bg-[#0D0D10]/50 border-white/[0.05] opacity-40'
-                }`}
-              >
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#C5A46D]/30">
-                  <span className="text-xs font-mono text-[#C5A46D] font-bold uppercase">
-                    Modern React 19 + TanStack Query
+              {/* Modern code */}
+              <div className="p-4 rounded-xl bg-[#0D0D0F]/90 border border-[#C5A46D]/20">
+                <div className="flex items-center justify-between pb-2 mb-3 border-b border-[#C5A46D]/20">
+                  <span className="font-mono text-[9px] text-[#C5A46D]/60 uppercase tracking-[0.2em]">
+                    Modern · React 19 + TS
                   </span>
-                  <span className="text-[10px] font-mono text-emerald-400">Strict TS</span>
+                  <span className="text-[9px] font-mono text-emerald-500/70">Strict TS</span>
                 </div>
-                <pre className="font-mono text-xs text-[#E8E3D9] overflow-x-auto leading-relaxed">
-{`export const PosTerminal: React.FC<PosProps> = ({ 
-  dealerId 
+                <pre className="font-mono text-xs text-[#E5E0D8]/80 overflow-x-auto leading-relaxed">
+{`export const PosTerminal: React.FC<PosProps> = ({
+  dealerId
 }) => {
   const { data, isPending } = useQuery<PosData>({
     queryKey: ['pos-terminal', dealerId],
@@ -247,7 +141,7 @@ export const OldSystems: React.FC = () => {
               </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );

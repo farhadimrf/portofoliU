@@ -105,35 +105,35 @@ export const GreatHuntCaseStudy: React.FC = () => {
   }, []);
 
   return (
-    <section id="great-hunt" ref={sectionRef} className="py-24 md:py-36 relative z-10">
+    <section id="great-hunt" ref={sectionRef} className="py-28 md:py-40 relative z-10">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <SectionHeading
           number="05"
-          category="THE GREAT HUNT // FLAGSHIP CASE STUDY"
-          headline="MTN Irancell: Digital POS Platform"
-          subheadline="Architectural modernization of a mission-critical nationwide dealer platform serving 40M+ telecom subscribers."
+          category="Flagship Case Study"
+          headline="THE GREAT HUNT"
+          subheadline="Architectural modernization of the mission-critical Digital POS platform supporting a telecom ecosystem serving 40M+ subscribers."
         />
 
-        {/* Prominent Monospace Scale Badge */}
+        {/* Prominent Scale Context Badge */}
         <div className="flex justify-center mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-lg bg-[#141519] border border-[#C5A46D]/40 shadow-[0_0_25px_rgba(197,164,109,0.15)] text-xs sm:text-sm font-mono text-[#C5A46D] tracking-wider uppercase backdrop-blur-md">
-            <Sparkles className="w-4 h-4 text-[#C5A46D] animate-pulse shrink-0" />
-            <span className="font-bold text-[#E8E3D9]">
-              [ 40,000,000+ Active Subscribers
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-lg bg-[#141519] border border-[#C5A46D]/30 shadow-[0_0_20px_rgba(197,164,109,0.12)] text-xs font-mono text-[#C5A46D] tracking-wider uppercase backdrop-blur-md">
+            <Sparkles className="w-3.5 h-3.5 text-[#C5A46D] animate-pulse shrink-0" />
+            <span className="font-semibold text-[#E5E0D8]">
+              Digital POS Platform
             </span>
-            <span className="text-[#C5A46D]">//</span>
-            <span className="text-[#9E988F]">Digital POS Platform ]</span>
+            <span className="text-[#5C5956]">·</span>
+            <span className="text-[#9A9490]">Telecom Ecosystem (40M+ Subscribers)</span>
           </div>
         </div>
 
         {/* Interactive Modernization Architecture Card (Split Comparison) */}
         <div className="mb-14 gothic-card p-6 sm:p-10 rounded-2xl border-[#C5A46D]/30 relative overflow-hidden">
           <div className="text-center max-w-2xl mx-auto mb-8">
-            <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#C5A46D] block mb-1">
-              SYSTEM TRANSFORMATION ARCHITECTURE
+            <span className="text-[10px] font-mono uppercase tracking-[0.22em] text-[#5C5956] block mb-1.5">
+              System Transformation
             </span>
-            <h3 className="font-cinzel text-xl sm:text-2xl md:text-3xl font-bold text-[#E8E3D9]">
-              From Monolithic Chaos to Modular Mastery
+            <h3 className="font-cinzel text-xl sm:text-2xl md:text-3xl font-bold text-[#E5E0D8]">
+              From Monolithic Chaos to Modular Architecture
             </h3>
           </div>
 

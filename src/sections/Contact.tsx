@@ -17,12 +17,12 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <footer id="contact" className="pt-24 md:pt-36 pb-16 relative z-10 border-t border-[#22232B] bg-gradient-to-b from-[#0A0A0C] via-[#0E0F12] to-[#08080A]">
+    <footer id="contact" className="pt-28 md:pt-40 pb-16 relative z-10 border-t border-[#22232B] bg-gradient-to-b from-[#0A0A0C] via-[#0E0F12] to-[#08080A]">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <SectionHeading
           number="11"
-          category="CONTACT // INITIATE CONVERSATION"
-          headline="The Night is Not Over."
+          category="Initiate Conversation"
+          headline="THE NIGHT IS NOT OVER"
           subheadline="Seeking high-impact software engineering roles, complex frontend architecture challenges, and mission-critical system modernizations."
         />
 
@@ -109,7 +109,7 @@ export const Contact: React.FC = () => {
           <div className="flex items-center gap-2">
             <span className="text-[#C5A46D] font-cinzel font-bold">{PERSONAL_INFO.shortName}</span>
             <span>•</span>
-            <span>{PERSONAL_INFO.name} // Software Engineer</span>
+            <span>{PERSONAL_INFO.name} · Software Engineer</span>
           </div>
 
           <div className="flex items-center gap-4">

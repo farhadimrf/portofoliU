@@ -1,50 +1,45 @@
 import React from 'react';
 import { SectionHeading } from '../components/SectionHeading';
 import { WORKSHOP_PRACTICES } from '../data/portfolioData';
-import { CheckCircle } from 'lucide-react';
 
 export const Workshop: React.FC = () => {
   return (
-    <section id="workshop" className="py-24 md:py-36 relative z-10">
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+    <section id="workshop" className="py-28 md:py-40 relative z-10">
+      <div className="max-w-5xl mx-auto px-6 md:px-12">
         <SectionHeading
           number="08"
-          category="THE WORKSHOP // DISCIPLINE & TOOLING"
-          headline="The Standards Behind the Craft"
-          subheadline="Quality is not an accident of genius; it is the natural consequence of rigorous automation, pre-commit hygiene, and unwavering standards."
+          category="Engineering Standards"
+          headline="THE WORKSHOP"
+          subheadline="The tools behind the hunt. Quality is the natural consequence of rigorous automation, pre-commit hygiene, and unwavering engineering discipline."
         />
 
-        {/* 4-Card Practice Matrix */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
           {WORKSHOP_PRACTICES.map((practice, idx) => (
             <div
               key={idx}
-              className="gothic-card p-6 sm:p-7 rounded-2xl flex flex-col justify-between space-y-4 hover:border-[#C5A46D]/40 transition-all duration-300 hover:-translate-y-1"
+              className="gothic-card p-6 sm:p-7 rounded-2xl flex flex-col gap-4 hover:border-[#C5A46D]/30 transition-all duration-300"
             >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs text-[#C5A46D] uppercase tracking-wider font-semibold">
-                    {practice.category}
-                  </span>
-                  <div className="w-7 h-7 rounded bg-[#0D0D10] border border-[#22232B] flex items-center justify-center text-[#9E988F] text-xs font-mono">
-                    0{idx + 1}
-                  </div>
-                </div>
+              <div className="space-y-2">
+                {/* LEVEL 3: Category — monospace, muted */}
+                <span className="font-mono text-[9px] tracking-[0.22em] uppercase text-[#5C5956]">
+                  {practice.category}
+                </span>
 
-                <h3 className="font-cinzel text-lg sm:text-xl font-bold text-[#E8E3D9]">
+                {/* LEVEL 2: Title — sans-serif, prominent */}
+                <h3 className="text-lg font-semibold text-[#E5E0D8] leading-snug">
                   {practice.title}
                 </h3>
 
-                <p className="text-xs sm:text-sm text-[#9E988F] leading-relaxed">
+                <p className="text-sm text-[#9A9490] leading-relaxed">
                   {practice.description}
                 </p>
 
-                {/* Tool Badges */}
-                <div className="flex flex-wrap gap-2 pt-2">
+                {/* Tool badges */}
+                <div className="flex flex-wrap gap-1.5 pt-1">
                   {practice.tools.map((t) => (
                     <span
                       key={t}
-                      className="px-2.5 py-1 rounded bg-[#0D0D10] border border-[#22232B] text-xs font-mono text-[#E8E3D9]"
+                      className="px-2 py-0.5 rounded bg-[#0D0D0F] border border-[rgba(255,255,255,0.055)] text-[11px] font-mono text-[#9A9490]"
                     >
                       {t}
                     </span>
@@ -52,10 +47,14 @@ export const Workshop: React.FC = () => {
                 </div>
               </div>
 
-              {/* Standard Guarantees */}
-              <div className="pt-4 border-t border-[#22232B] flex items-start gap-2 text-xs font-mono text-[#C5A46D]">
-                <CheckCircle className="w-4 h-4 text-[#C5A46D] shrink-0 mt-0.5" />
-                <span>Standard: {practice.standard}</span>
+              {/* Standard */}
+              <div className="pt-3 border-t border-[rgba(255,255,255,0.055)]">
+                <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-[#5C5956] block mb-1">
+                  Standard
+                </span>
+                <p className="text-xs text-[#C5A46D]/70 leading-relaxed">
+                  {practice.standard}
+                </p>
               </div>
             </div>
           ))}
