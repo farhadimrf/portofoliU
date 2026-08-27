@@ -11,7 +11,7 @@ export const PERSONAL_INFO = {
   email: 'farhadimrf@gmail.com',
   github: 'https://github.com/farhadimrf',
   linkedin: 'https://www.linkedin.com/in/mohammadreza-farhadi-147491246',
-  resumeUrl: '/Mohammadreza_Farhadi_Resume.pdf',
+  resumeUrl: '/Mohammadreza_Farhadi_CV.pdf',
   availableForHire: true,
 };
 
